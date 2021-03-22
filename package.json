@@ -1,0 +1,15 @@
+{
+  "name": "groep",
+  "version": "1.0.0",
+  "description": "Groepswerk Front End",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "Groepswerk",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^12.0.1"
+  }
+}

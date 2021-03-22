@@ -1,0 +1,44 @@
+//General centering
+
+@mixin flexCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flexDirection($direction){
+    display: flex;
+    flex-direction: $direction;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flexDirectionContent($direction, $justify) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: center;
+    justify-content: $justify;
+}
+
+
+// breakpoints
+
+@mixin media($point){
+    @if $point == mphone {
+        @media screen and(min-width: 367px) {@content;}
+    } @else if $point == bphone {
+        @media screen and(min-width: 536px) {@content;}
+    } @else if $point == ebphone {
+        @media screen and (min-width: 633px) {@content;}
+    } @else if $point == stablet {
+        @media screen and (min-width: 717px) {@content;}
+    } @else if $point == mtablet {
+        @media screen and (min-width: 899px) {@content;}
+    } @else if $point == btablet {  
+        @media screen and (min-width: 1099px) {@content;}
+    } @else if $point == sdesktop {
+        @media screen and (min-width: 1159px) {@content;}
+    } @else if $point == ndesktop {
+        @media screen and (min-width: 1449px) {@content;}
+    }
+}
