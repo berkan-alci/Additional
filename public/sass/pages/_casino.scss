@@ -1,0 +1,101 @@
+header {
+    background: #353535;
+    color: #FFF500;
+    height: 75px;
+}
+
+body {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+main {
+    align-self: center;
+    width: 97%;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+h3 {
+    padding: 0% 0% 3% 2.5% ;
+}
+
+/* Dropdown Menu*/
+
+.dropMenu {
+    align-self: center;
+    position: relative;
+    width: 95%;
+}
+
+.menubtn {
+    width: 100%;
+
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 800;
+    display: flex;
+    justify-content: space-between;
+
+    background-color: #525252;
+    border: none;
+    border-radius: 12px;
+    padding: 5% 5%;
+    margin: 2.5% 0%;
+}
+
+.menu-content {
+    display: none;
+    position: absolute;
+    background-color: #525252;
+    width: 100%;
+    z-index: 1;
+}
+
+.menu-content a {
+    text-align: center;
+    color: #ffffff;
+
+    padding: 4% 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.menu-content a:hover {color: #FFF500;}
+
+.dropMenu:hover .menu-content {display: block;}
+
+#selected {
+    color: #FFF500;
+}
+
+
+/* Games */
+.games {
+    width: 95%;
+
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-between;
+    align-self: center;
+
+    margin-bottom: 5%;
+}
+
+.minigame {
+    width: 30%;
+    height: auto;
+    padding-bottom: 2%;
+}
+
+.miniimg {
+    width: 100%;
+    border-radius: 15%;
+}
+
+
+footer {
+    height: 75px;
+    background: #353535;
+    color: white;
+}

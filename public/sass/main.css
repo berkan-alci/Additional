@@ -3,26 +3,58 @@ a, button, input, select, textarea, label, summary {
       touch-action: manipulation;
 }
 
-* {
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
 }
 
-ul, li {
+body {
+  line-height: 1;
+}
+
+ol, ul {
   list-style: none;
 }
 
-img {
-  width: 100%;
-  height: 100%;
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 html {
@@ -31,5 +63,148 @@ html {
   scroll-behavior: smooth;
   line-height: 1.5;
   letter-spacing: .1rem;
+}
+
+.container {
+  min-height: 30vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#banner .banner {
+  background-image: url("../../img/banner.png");
+}
+
+#banner .banner img {
+  width: 100%;
+  height: 100%;
+}
+
+header {
+  background: #353535;
+  color: #FFF500;
+  height: 75px;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+}
+
+main {
+  -ms-flex-item-align: center;
+      align-self: center;
+  width: 97%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+}
+
+h3 {
+  padding: 0% 0% 3% 2.5%;
+}
+
+/* Dropdown Menu*/
+.dropMenu {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  position: relative;
+  width: 95%;
+}
+
+.menubtn {
+  width: 100%;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 800;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #525252;
+  border: none;
+  border-radius: 12px;
+  padding: 5% 5%;
+  margin: 2.5% 0%;
+}
+
+.menu-content {
+  display: none;
+  position: absolute;
+  background-color: #525252;
+  width: 100%;
+  z-index: 1;
+}
+
+.menu-content a {
+  text-align: center;
+  color: #ffffff;
+  padding: 4% 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.menu-content a:hover {
+  color: #FFF500;
+}
+
+.dropMenu:hover .menu-content {
+  display: block;
+}
+
+#selected {
+  color: #FFF500;
+}
+
+/* Games */
+.games {
+  width: 95%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-item-align: center;
+      align-self: center;
+  margin-bottom: 5%;
+}
+
+.minigame {
+  width: 30%;
+  height: auto;
+  padding-bottom: 2%;
+}
+
+.miniimg {
+  width: 100%;
+  border-radius: 15%;
+}
+
+footer {
+  height: 75px;
+  background: #353535;
+  color: white;
 }
 /*# sourceMappingURL=main.css.map */
