@@ -1,10 +1,12 @@
-@import './abstracts/colors';
 @import './abstracts/helpers';
 @import './abstracts/variables';
 @import './abstracts/mixins';
 
 @import './base/reset';
 @import './base/typography';
+
+@import './components/button';
+@import './components/hamburger';
 
 @import './layout/container';
 @import './layout/header';

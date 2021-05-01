@@ -1,0 +1,114 @@
+#header {
+    position: fixed;
+    z-index: $z-high;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: auto;
+
+    .header {
+        min-height: 10vh;
+        background-color: $primary-one;
+        transition: .3 ease background-color;
+        
+
+        @include media(bphone){
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+
+        @include media(mtablet){
+            padding-left: 60px;
+            padding-right: 60px;
+        }
+
+        @include media(btablet){
+            padding-left: 70px;
+            padding-right: 70px;
+        }
+        @include media(ndesktop){
+            padding-left: 120px;
+            padding-right: 120px;
+        }
+    
+        .nav-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            height: 100%;
+            
+            
+
+            .logo {
+                
+            }
+            
+
+            ul {
+                position: absolute;
+                background-color: $primary-one;
+                width: 100vw;
+                height: 100vh;
+                top: 8vh;
+                right: 100%;
+                @include flexDirection(column);
+                z-index: 1;
+                overflow-x: hidden;
+                transition: .5s ease right;
+                
+
+                li {
+                    border-top: 1px solid $secundary-one;
+                    padding: 20px 0;
+                    width: 100%;
+                    @include flexCenter;
+
+                 &:nth-child(5) {
+                    border-bottom: 1px solid $secundary-one;
+                 }
+
+                }
+                li:hover a {
+                    color: $secundary-one;
+                    transition: .5s ease;;
+                    
+                    
+                }
+            }
+
+            ul.active {
+                min-height: 92vh;
+                border-top: 1px solid $secundary-one;
+                right: 0;
+            }
+
+        }
+        .nav-list {
+
+            
+            @include hamburger;
+            @include media(sdesktop){
+                flex-direction: row;
+                ul {
+                    display: inline;
+                    position: initial;
+                    height: auto;
+                    width: fit-content;
+                    flex-direction: row;
+                    background-color: transparent;
+                    left: 0;
+
+                    li {
+                        all: unset;
+                        display: inline-block;
+                        padding: 20px;
+
+        
+                    }
+                }
+            }
+
+        }
+    }
+}
