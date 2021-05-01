@@ -68,7 +68,46 @@
     <section id="modal-register">
         <div class="modal-register-bg">
             <div class="modal-register-content">
-               <h2 class="register">placeholder</h2>
+                <div class="modal-register-top">
+                    <h2 class="register">placeholder</h2>
+                </div>
+                <div class="modal-register-bottom">
+                    <!--form here-->
+                    <div class="form-wrapper">
+                        <form action="./package.json" method="post" class="register" id="register-info">
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" placeholder="Henk" id="username" required="required">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" placeholder="Bv:Henk@bazeke.odisee.be" id="email-input" required="required">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <Input type="password" placeholder="min. 8 charactres" required></Input>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm-password">Confirm Password</label>
+                                <Input type="password" placeholder="min. 8 charactres" id="confirm-password" required></Input>
+                            </div>
+                            <div class="form-group">
+                                <label for="adress">Adress</label>
+                                <input type="text" placeholder="patatttenstrat 8 gent" id="adress" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="birth-date">Date of Birth</label>
+                                <input type="date" name="birth-date" id="birth-date" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" name="tos" id="tos" required>
+                                <label for="tos">I have read and agree to the user agreement</label>
+                            </div>
+                            <button type="submit">Register</button>
+
+                        </form>  
+                    </div>  
+                </div>
             </div>
         </div>
     </section>
