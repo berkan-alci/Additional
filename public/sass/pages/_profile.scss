@@ -1,0 +1,91 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: Arial, "sans-serif";
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+p, a, span {
+  font-size: 1.5rem;
+}
+
+.wrapper {
+  margin-right: auto;
+  margin-left:  auto;
+
+  max-width: 960px;
+
+  padding-right: 10px;
+  padding-left:  10px;
+}
+
+.sidebar {
+  color: #ffffff;
+  padding: 2rem 0;
+
+  /* Color3 */
+  background: #525252;
+
+  /* BoxShadow */
+  box-shadow: 5px 5px 20px rgba(103, 103, 103, 0.25);
+  border-radius: 20px;
+  width: 20rem;
+
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+
+  text-align: center;
+}
+
+.sidebar-top {
+  border-bottom: solid 3px #ffffff;
+  width: 100%;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+
+.sidebar ul li {
+  list-style: none;
+  margin-bottom: 1.5rem;
+}
+
+.sidebar ul li a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.sidebar ul li a:hover {
+  text-decoration: underline;
+}
+
+#main .wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+}
+
+.profile-top {
+  margin: 2rem 0;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.profile-top h3 {
+  margin-left: 2rem;
+}
+
+.pf-picture {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 5rem;
+  background-color: darkgray;
+}
