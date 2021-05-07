@@ -5,9 +5,15 @@ const express = require('express');
 const eapp = express();
 
 
-// Set the default templating engine to ejs
+// static files & default view engine
 eapp.set("view engine","ejs")
+eapp.use(express.static('public'));
+eapp.use('/sass', express.static(__dirname + '/public/sass'));
+eapp.use('/js', express.static(__dirname + '/public/js'));
+eapp.use('/img', express.static(__dirname + '/public/img'));
 
+
+//electron 
 
 function createWindow () {
   const win = new BrowserWindow({
@@ -18,7 +24,7 @@ function createWindow () {
   });
 
   // win.loadFile('index.html');
-  win.loadFile('views/index.ejs');
+  win.loadFile( path.join(__dirname, 'views/index.ejs'));
 }
 
 app.whenReady().then(() => {
