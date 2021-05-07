@@ -1,27 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Casino</title>
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
-
-    <!-- stylesheets -->
-    <link rel="stylesheet" href="./public/sass/main.css">
-
-    <!-- scripts & CDN -->
-
-    <!-- Open Graph & Twitter -->
-
-    <!-- Google Analytics -->
-
-    <!-- SEO Meta tags -->
+    <%- include('./partials/head') %>
 </head>
 <body>
     
-    <header>
-        <h1>Better</h1>
-        <p>header</p>
-    </header>
+    <!-- Header -->
+    <%- include('./partials/header-logged'); %> 
 
     <main>
         <section class="dropMenu">
@@ -62,11 +47,7 @@
         </section>
     </main>
 
-    <footer>
-        <p>footer</p>
-    </footer>
-
-
     <!-- Footer -->
+    <%- include ('./partials/footer'); %> 
 </body>
 </html>

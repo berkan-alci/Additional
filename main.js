@@ -1,5 +1,13 @@
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
+const ejse = require('ejs-electron')
+const express = require('express');
+const eapp = express();
+
+
+// Set the default templating engine to ejs
+eapp.set("view engine","ejs")
+
 
 function createWindow () {
   const win = new BrowserWindow({
@@ -10,7 +18,7 @@ function createWindow () {
   });
 
   // win.loadFile('index.html');
-  win.loadFile('index.html');
+  win.loadFile('views/index.ejs');
 }
 
 app.whenReady().then(() => {
