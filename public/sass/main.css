@@ -423,7 +423,7 @@ a {
 }
 
 #modal-register .modal-register-top {
-  background-image: url(D:\CloudStation\school\web_mobile_front\Opdrachten\co_working\groepswerk\groepswerk\public\img\poker.jpg);
+  background-image: url(./groepswerk/public/img/poker.jpg);
   background-size: cover;
   background-repeat: repeat;
   height: 500px;
@@ -444,7 +444,7 @@ a {
 
 #modal-register .form-wrapper * label {
   font-size: 13px;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Lato';
   margin: 20px auto 5px auto;
 }
 
