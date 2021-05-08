@@ -408,23 +408,59 @@ a {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
-  position: fixed;
-  top: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
-#modal-register .modal-register-bg .modal-register-content {
-  background-color: #FFFFFF;
-  height: 40vh;
-  width: 50vh;
-  text-align: center;
+#modal-register .modal-register-top {
+  background-image: url(D:\CloudStation\school\web_mobile_front\Opdrachten\co_working\groepswerk\groepswerk\public\img\poker.jpg);
+  background-size: cover;
+  background-repeat: repeat;
+  height: 500px;
+  margin: 0px auto 0px auto;
+}
+
+#modal-register .modal-register-bottom {
+  background-color: white;
+}
+
+#modal-register .form-wrapper * {
+  display: block;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto 12% auto 12%;
+}
+
+#modal-register .form-wrapper * label {
+  font-size: 13px;
+  font-family: 'Times New Roman', Times, serif;
+  margin: 20px auto 5px auto;
+}
+
+#modal-register .form-wrapper * input {
+  margin: auto;
+}
+
+#modal-register .form-wrapper * input:hover {
+  -webkit-filter: drop-shadow(0 2px 2px #FFF500);
+          filter: drop-shadow(0 2px 2px #FFF500);
+}
+
+#modal-register .form-wrapper * .checkbox {
+  color: green;
+  border-radius: 20em;
+  width: 100px;
+  height: 100px;
 }
 /*# sourceMappingURL=main.css.map */
