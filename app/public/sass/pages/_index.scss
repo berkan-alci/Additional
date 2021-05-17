@@ -1,0 +1,124 @@
+#banner {
+    .banner {
+        background-image: url('../../img/banner.png');
+        img {
+            width: 100%;
+            height: 100%;
+            
+        }
+    }
+}
+#modal-login{
+    .modal-login-bg{
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        position: fixed;
+        top: 0;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        .modal-content{
+            background-color: $primary-six;
+
+        }
+    }
+}
+
+#modal-register {
+    min-width: 300px;
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.6);
+    a{
+        color: black;
+        font-size: 1.3rem;
+        letter-spacing: unset;
+        margin: 20px 5px;
+    }
+    
+    span{
+        color: $secundary-one;
+    }
+    .modal-register-top{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img{
+            width: 75%;
+            margin: auto 0px auto 0px;
+            opacity: 0.5;
+        }
+    }
+    .modal-register-bottom{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: white;
+        margin: 0% 12.5% 0% 12.5%;
+        padding-bottom: 5%;
+        padding-left:10%;
+        .close {
+            display: block;
+            position: relative;
+            bottom: -260px;
+            right: 0;
+            color: $primary-four;
+        }
+        
+    }
+    .form-wrapper {
+        margin-top: -2px;
+
+        .form-group {
+            display: block;
+            margin: auto;
+        }
+        label {
+            font-size: 13px;
+            font-family: 'Lato';
+            margin: auto;
+        }
+        
+        input:hover {
+            filter: drop-shadow(0 2px 2px #FFF500);
+        }
+        .checkbox {
+            border-radius: 20em;
+            width: 15px;
+            height: 15px;
+            float: left;
+            margin-right: 5px;
+        }
+        .username{
+            margin-top: 25px;
+        }
+        
+
+    }
+    .tos {
+        padding-top: 5px;
+        span {
+            
+            display: inline;
+        }
+    }
+    
+    .form-wrapper *  {
+        display: block;
+        
+        
+    }
+    
+}
+
+
+
+

@@ -1,0 +1,15 @@
+input {
+    width: 200px;
+    height: 24px;
+    margin: 5px auto 20px auto;
+    border: 1px solid darkgrey;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+button[type=submit] {
+    background: $secundary-one;
+    width: 200px;
+    height: 44px;
+    border: none;
+    border-radius: 10px;
+}
