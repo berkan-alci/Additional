@@ -1,7 +1,10 @@
-﻿# groepswerk
+Better is a light gambling site created for a college project by: Youke, Tibo, David and Berkan.
 
-command prompt:
+Features:
 
-npm install
+- Desktop application (electron)
+- EJS-Electron Combined with SASS
+- SQL Database
+- Custom made games: Roulette, Hi-Lo, Blackjack
+- Custom API
 
-npm start
