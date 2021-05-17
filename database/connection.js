@@ -7,6 +7,17 @@ const config = {
     database: 'betterdb',
 };
 
+// const config = {
+//     host: "betterdb.mysql.database.azure.com",
+//     user: "david@betterdb",
+//     password: 'Azerty123',
+//     database: 'betterdb',
+//     port: 3306,
+//     ssl: {
+//         rejectUnauthorized: false
+//     }
+// };
+
 async function getDatabaseConnection() {
     return mysql.createConnection(config);
 }

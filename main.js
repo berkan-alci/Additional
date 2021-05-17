@@ -24,7 +24,7 @@ function createWindow () {
   });
 
   // win.loadFile('index.html');
-  win.loadFile( path.join(__dirname, 'views/index.ejs'));
+  win.loadFile( path.join(__dirname, 'viewsBetter/index.ejs'));
 }
 
 app.whenReady().then(() => {

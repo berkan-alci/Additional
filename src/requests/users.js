@@ -9,9 +9,21 @@ async function getUsers() {
 
 module.exports.getUsers = getUsers;
 
+async function getUser(username) {
+    const conn = await connection.getDatabaseConnection();
+    const query = 'SELECT * FROM users WHERE username = ?';
+    const [results] = await conn.query(query, [
+        username
+    ]);
+    await conn.end();
+    return results;
+}
+
+module.exports.getUser = getUser;
+
 async function storeUser(user) {
     const conn = await connection.getDatabaseConnection();
-    const query = 'INSERT INTO users (username, password, email, city, zip, street, `card_number`, birthdate, credit) ' +
+    const query = 'INSERT INTO users (username, password, email, city, zip, street, card_number, birthdate, credit) ' +
         'VALUES (?,?,?,?,?,?,?,?,?)';
     const [results] = await conn.query(query, [
         user.userName,
@@ -32,7 +44,7 @@ module.exports.storeUser = storeUser;
 
 async function putUser(user) {
     const conn = await connection.getDatabaseConnection();
-    const query = 'UPDATE users SET username = ?, email = ?, city = ?, zip = ?, street = ?, `card_number` = ?, birthdate = ? WHERE id = ?';
+    const query = 'UPDATE users SET username = ?, email = ?, city = ?, zip = ?, street = ?, card_number = ?, birthdate = ? WHERE id = ?';
     const [results] = await conn.query(query, [
         user.userName,
         user.email,
