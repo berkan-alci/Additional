@@ -1,0 +1,66 @@
+//variables
+
+
+
+
+// Colors
+$primary-one: #3F3F3F;
+$primary-two: #525252;
+$primary-three: #929191;
+$primary-four: #BEBEBE;
+$primary-five: #ECECEC;
+$primary-six: #FFFFFF;
+$paragraph: #545454;
+$secondary-one: #FFF500;
+$lighten: 5;
+$darken: 25;
+
+
+// Color Map
+$colors: (
+  p1: (
+    base: $primary-one,
+    light: lighten($primary-one, $lighten),
+    dark: darken($primary-one, $darken),
+  ),
+  p2: (
+    base: $primary-two,
+    light: lighten($primary-two, $lighten),
+    dark: darken($primary-two, $darken),
+  ),
+  p3: (
+    base: $primary-three,
+    light: lighten($primary-three, $lighten),
+    dark: darken($primary-three, $darken),
+  ),
+  p4: (
+    base: $primary-four,
+    light: lighten($primary-four, $lighten),
+    dark: darken($primary-four, $darken),
+  ),
+  p5: (
+    base: $primary-five,
+    light: lighten($primary-five, $lighten),
+    dark: darken($primary-five, $darken),
+  ),
+  p6: (
+    base: $primary-six,
+    light: lighten($primary-six, $lighten),
+    dark: darken($primary-six, $darken),
+  ),
+  par: (
+    base: $paragraph,
+    light: lighten($paragraph, $lighten),
+    dark: darken($paragraph, $darken),
+  ),
+  sec: (
+    base: $secondary-one,
+    light: lighten($secondary-one, $lighten),
+    dark: darken($secondary-one, $darken),
+  ),
+);
+
+@function clr($base, $shade: base) {
+    $color: map-get(map-get($colors, $base), $shade);
+    @return $color;
+  }
