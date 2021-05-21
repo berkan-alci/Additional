@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
 const cors = require('cors');
 const methodOverride = require('method-override');
+const path = require('path');
 
 const users = require('./src/requests/users');
 const bets = require('./src/requests/bets');
@@ -13,6 +14,8 @@ const Bet = require('./src/requests/models/bet');
 const port = 3000;
 
 const app = express();
+
+app.set('views', __dirname + '/../app/views');
 
 app.use(session({
     secret: 'iuqsdhfhsdhfqno134568!!',
@@ -26,9 +29,11 @@ app.use(methodOverride('_method'));
 
 app.set('view-engine', 'ejs');
 
+// Authentication
+
 app.get('/', checkAuthenticated, (request, response) => {
     response.render('index.ejs', {username: request.session.username});
-    //response.send('Welcome back, ' + request.session.username + '!');
+    console.log('test');
 });
 
 app.get('/login', checkNotAuthenticated, (req, res) => {
@@ -77,6 +82,7 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
 
     try {
         const hashedPassword = await bcrypt.hash(password, 10);
+        const hashedCardNumber = await bcrypt.hash(cardNumber, 10);
 
         const user = new User(
             false,
@@ -86,7 +92,7 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
             city,
             zip,
             street,
-            cardNumber,
+            hashedCardNumber,
             birthdate,
             0,
         );
@@ -128,7 +134,213 @@ function checkNotAuthenticated(req, res, next) {
     next();
 }
 
+// API
+
+app.get(
+    '/api',
+    (req, res) => {
+        res.send('Hello world');
+    }
+);
+
+app.get(
+    '/api/users',
+    (req, res) => {
+        users.getUsers().then((results) => {
+            res.send(results);
+        }).catch((error) => {
+            res.send({
+                error: error,
+                status: 500
+            });
+        });
+    }
+);
+
+app.post(
+    '/api/users',
+    (req, res) => {
+        const body = req.body;
+
+        const user = new User(
+            false,
+            body.userName,
+            body.password,
+            body.email,
+            body.city,
+            body.zip,
+            body.street,
+            body.cardNumber,
+            body.birthdate,
+            body.credit,
+        );
+
+        users.storeUser(user).then(() => {
+            res.send({
+                message: 'User was added successfully',
+                status: 201
+            });
+        }).catch((error) => {
+            res.send({
+                error: error,
+                status: 500
+            });
+        });
+    }
+);
+
+app.put(
+    '/api/users/:id',
+    (req, res) => {
+        const body = req.body;
+        const id = req.params.id;
+
+        const user = new User(
+            false,
+            body.userName,
+            body.password,
+            body.email,
+            body.city,
+            body.zip,
+            body.street,
+            body.cardNumber,
+            body.birthdate,
+            body.credit,
+        );
+
+        users.putUser(user).then(() => {
+            res.send({
+                message: 'User update was successfully',
+                status: 201
+            });
+        }).catch((error) => {
+            res.send({
+                error: error,
+                status: 500
+            });
+        });
+    }
+);
+
+app.patch(
+    '/api/users/:id',
+    (req, res) => {
+        const body = req.body;
+        const id = req.params.id;
+
+        const user = new User(
+            false,
+            body.userName,
+            body.password,
+            body.email,
+            body.city,
+            body.zip,
+            body.street,
+            body.cardNumber,
+            body.birthdate,
+            body.credit,
+        );
+
+        const update = body.update;
+
+        users.patchCredit(user, update).then(() => {
+            res.send({
+                message: 'Credit update was successfully',
+                status: 201
+            });
+        }).catch((error) => {
+            res.send({
+                error: error,
+                status: 500
+            });
+        });
+    }
+);
+
+app.delete(
+    '/api/users/:id',
+    (req, res) => {
+        const id = req.params.id;
+
+        users.deleteUser(id).then(() => {
+            res.send({
+                message: 'User delete was successfully',
+                status: 201
+            });
+        }).catch((error) => {
+            res.send({
+                error: error,
+                status: 500
+            });
+        });
+    }
+);
+
+app.get(
+    '/api/bets',
+    (req, res) => {
+        bets.getBets().then((results) => {
+            res.send(results);
+        }).catch((error) => {
+            res.send({
+                error: error,
+                status: 500
+            });
+        });
+    }
+);
+
+app.post(
+    '/api/bets',
+    (req, res) => {
+        const body = req.body;
+
+        const bet = new Bet(
+            false,
+            body.bet,
+            body.amount,
+            body.date,
+            body.userId,
+        );
+
+        bets.storeBet(bet).then(() => {
+            res.send({
+                message: 'Bet was added successfully',
+                status: 201
+            });
+        }).catch((error) => {
+            res.send({
+                error: error,
+                status: 500
+            });
+        });
+    }
+);
+
+app.delete(
+    '/api/bets/:id',
+    (req, res) => {
+        const id = req.params.id;
+
+        bets.deleteBet(id).then(() => {
+            res.send({
+                message: 'Bet delete was successfully',
+                status: 201
+            });
+        }).catch((error) => {
+            res.send({
+                error: error,
+                status: 500
+            });
+        });
+    }
+);
+
 app.listen(
     port,
     () => console.log(`http://localhost:${port}`)
 );
+
+// require("http").createServer(function (req, res) {
+//     console.log("Hello from server started by Electron app!");
+// }).listen(port);

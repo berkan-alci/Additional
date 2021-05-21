@@ -4,7 +4,8 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "devStart": "nodemon server.js"
   },
   "keywords": [],
   "author": "",

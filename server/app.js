@@ -12,14 +12,14 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.get(
-    '/',
+    '/api',
     (req, res) => {
         res.send('Hello world');
     }
 );
 
 app.get(
-    '/users',
+    '/api/users',
     (req, res) => {
         users.getUsers().then((results) => {
             res.send(results);
@@ -33,7 +33,7 @@ app.get(
 );
 
 app.post(
-    '/users',
+    '/api/users',
     (req, res) => {
         const body = req.body;
 
@@ -65,7 +65,7 @@ app.post(
 );
 
 app.put(
-    '/users/:id',
+    '/api/users/:id',
     (req, res) => {
         const body = req.body;
         const id = req.params.id;
@@ -98,7 +98,7 @@ app.put(
 );
 
 app.patch(
-    '/users/:id',
+    '/api/users/:id',
     (req, res) => {
         const body = req.body;
         const id = req.params.id;
@@ -133,7 +133,7 @@ app.patch(
 );
 
 app.delete(
-    '/users/:id',
+    '/api/users/:id',
     (req, res) => {
         const id = req.params.id;
 
@@ -152,7 +152,7 @@ app.delete(
 );
 
 app.get(
-    '/bets',
+    '/api/bets',
     (req, res) => {
         bets.getBets().then((results) => {
             res.send(results);
@@ -166,7 +166,7 @@ app.get(
 );
 
 app.post(
-    '/bets',
+    '/api/bets',
     (req, res) => {
         const body = req.body;
 
@@ -193,7 +193,7 @@ app.post(
 );
 
 app.delete(
-    '/bets/:id',
+    '/api/bets/:id',
     (req, res) => {
         const id = req.params.id;
 
