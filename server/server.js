@@ -32,16 +32,15 @@ app.set('view-engine', 'ejs');
 // Authentication
 
 app.get('/', checkAuthenticated, (request, response) => {
-    response.render('index.ejs', {username: request.session.username});
-    console.log('test');
+    response.render('index.ejs', {user: request.session.user});
 });
 
 app.get('/login', checkNotAuthenticated, (req, res) => {
-    res.render('login.ejs')
+    res.render('login.ejs');
 });
 
 app.get('/register', checkNotAuthenticated, (req, res) => {
-    res.render('register.ejs')
+    res.render('register.ejs');
 });
 
 app.post('/login', checkNotAuthenticated, (request, response) => {
@@ -49,30 +48,33 @@ app.post('/login', checkNotAuthenticated, (request, response) => {
     let password = request.body.password;
 
     if (username && password) {
-        users.getUser(username).then( async (results) => {
+        users.getUserByUsername(username).then( async (results) => {
             if (await bcrypt.compare(password, results[0].password)) {
-                console.log('Password correct');
                 request.session.loggedin = true;
-                request.session.username = results[0].username;
-                response.redirect('/');
+                request.session.user = results[0];
+                delete request.session.user.password;
+                console.log(request.session.user);
+                response.render('index.ejs', {user: request.session.user});
             } else {
-                response.send('Incorrect Username and/or Password!');
+                console.log('Incorrect Username and/or Password!');
+                response.render('login.ejs', {username: username, error: 'Incorrect Username and/or Password!'});
             }
         }).catch((error) => {
-            response.send({
-                error: 'Incorrect Username and/or Password! ' + error,
-                status: 500
-            });
+            // response.send({
+            //     error: 'Incorrect Username and/or Password! ' + error,
+            //     status: 500
+            // });
+            console.log(error);
         });
     } else {
-        response.send('Please enter Username and Password!');
-        response.end();
+        console.log('Please enter Username and Password!');
     }
 });
 
 app.post('/register', checkNotAuthenticated, async (req, res) => {
     let username = req.body.username;
     let password = req.body.password;
+    let confirmPassword = req.body.confirmPassword;
     let email = req.body.email;
     let city = req.body.city;
     let zip = req.body.zip;
@@ -80,11 +82,12 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
     let cardNumber = req.body.cardNumber.split(" ").join("");
     let birthdate = req.body.birthdate;
 
+    let user = null;
+
     try {
         const hashedPassword = await bcrypt.hash(password, 10);
-        const hashedCardNumber = await bcrypt.hash(cardNumber, 10);
 
-        const user = new User(
+        user = new User(
             false,
             username,
             hashedPassword,
@@ -92,30 +95,64 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
             city,
             zip,
             street,
-            hashedCardNumber,
+            cardNumber,
             birthdate,
             0,
         );
 
-        users.storeUser(user).then(() => {
-            res.send({
-                message: 'User was added successfully',
-                status: 201
-            });
-        }).catch((error) => {
-            res.send({
-                error: 'User was not added. ' + error,
-                status: 500
-            });
-        });
     } catch  {
         res.redirect('/register');
+    }
+
+    if(password === confirmPassword) {
+
+        users.getUserByUsername(username).then( (results1) => {
+
+            if (results1) {
+                res.render('register.ejs', {error: 'Username already exist.', user: user});
+                return;
+            }
+
+            users.getUserByEmail(email).then( (results2) => {
+
+                if (results2) {
+                    res.render('register.ejs', {error: 'Email already exist.', user: user});
+                    return;
+                }
+
+                users.getUserByCard(cardNumber).then( (results3) => {
+
+                    if (results3) {
+                        res.render('register.ejs', {error: 'Card number already exist.', user: user});
+                    } else {
+                        users.storeUser(user).then(() => {
+                            res.redirect('/');
+                            console.log('User was added successfully');
+                        }).catch((error) => {
+                            console.log('User was not added. ' + error);
+                        });
+                    }
+
+                }).catch((error) => {
+                    console.log(error);
+                });
+
+            }).catch((error) => {
+                console.log(error);
+            });
+
+        }).catch((error) => {
+            console.log(error);
+        });
+
+    } else {
+        res.render('register.ejs', {error: 'Passwords do not match.', user: user});
     }
 });
 
 app.delete('/logout', (req, res) => {
     req.session.loggedin = false;
-    req.session.username = '';
+    req.session.user = [];
     res.redirect('/');
 });
 

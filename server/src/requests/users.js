@@ -9,7 +9,7 @@ async function getUsers() {
 
 module.exports.getUsers = getUsers;
 
-async function getUser(username) {
+async function getUserByUsername(username) {
     const conn = await connection.getDatabaseConnection();
     const query = 'SELECT * FROM users WHERE username = ?';
     const [results] = await conn.query(query, [
@@ -19,7 +19,31 @@ async function getUser(username) {
     return results;
 }
 
-module.exports.getUser = getUser;
+module.exports.getUserByUsername = getUserByUsername;
+
+async function getUserByEmail(email) {
+    const conn = await connection.getDatabaseConnection();
+    const query = 'SELECT * FROM users WHERE email = ?';
+    const [results] = await conn.query(query, [
+        email
+    ]);
+    await conn.end();
+    return results;
+}
+
+module.exports.getUserByEmail = getUserByEmail;
+
+async function getUserByCard(cardNumber) {
+    const conn = await connection.getDatabaseConnection();
+    const query = 'SELECT * FROM users WHERE card_number = ?';
+    const [results] = await conn.query(query, [
+        cardNumber
+    ]);
+    await conn.end();
+    return results;
+}
+
+module.exports.getUserByCard = getUserByCard;
 
 async function storeUser(user) {
     const conn = await connection.getDatabaseConnection();
