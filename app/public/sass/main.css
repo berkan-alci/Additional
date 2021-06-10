@@ -174,92 +174,88 @@ button[type=submit] {
   background-color: #FFFFFF;
 }
 
-#modal-register {
-  min-width: 300px;
-  overflow: auto;
+#modal-register .modal-register-bg {
   width: 100%;
   height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.6);
 }
 
-#modal-register a {
-  color: black;
-  font-size: 1.3rem;
-  letter-spacing: unset;
-  margin: 20px 5px;
-}
-
-#modal-register span {
-  color: #FFF500;
+#modal-register .modal-register-top::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 361px;
+  height: 260px;
+  background-color: rgba(255, 255, 255, 0.25);
 }
 
 #modal-register .modal-register-top {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  display: block;
+  background-image: url("./poker.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 260px;
+  width: 360px;
+  margin: 0px auto 0px auto;
+  z-index: 100;
 }
 
-#modal-register .modal-register-top img {
-  width: 75%;
-  margin: auto 0px auto 0px;
-  opacity: 0.5;
+#modal-register .modal-register-top .modal-register-top-text {
+  color: black;
+}
+
+#modal-register .modal-register-top h1 {
+  margin: 25px;
+  margin-bottom: 0;
+  position: relative;
+}
+
+#modal-register .modal-register-top span {
+  color: yellow;
+  -webkit-text-stroke: 1px black;
+}
+
+#modal-register .modal-register-top .modal-register-top-logo {
+  position: relative;
+  padding: 50px 0 0 50px;
 }
 
 #modal-register .modal-register-bottom {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  background-color: white;
+}
+
+#modal-register .form-wrapper * {
+  display: block;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  background-color: white;
-  margin: 0% 12.5% 0% 12.5%;
-  padding-bottom: 5%;
-  padding-left: 10%;
+  margin: auto 12% auto 12%;
 }
 
-#modal-register .modal-register-bottom .close {
-  display: block;
-  position: relative;
-  bottom: -260px;
-  right: 0;
-  color: #BEBEBE;
-}
-
-#modal-register .form-wrapper {
-  margin-top: -2px;
-}
-
-#modal-register .form-wrapper .form-group {
-  display: block;
-  margin: auto;
+#modal-register .form-wrapper label:first-child {
+  padding-top: 20px;
+  margin-top: 0;
 }
 
 #modal-register .form-wrapper label {
   font-size: 13px;
-  font-family: 'Lato';
-  margin: auto;
+  font-family: 'Times New Roman', Times, serif;
+  margin: 20px auto 5px auto;
+}
+
+#modal-register .form-wrapper input {
+  margin: 0;
 }
 
 #modal-register .form-wrapper input:hover {
@@ -268,27 +264,25 @@ button[type=submit] {
 }
 
 #modal-register .form-wrapper .checkbox {
+  color: green;
   border-radius: 20em;
-  width: 15px;
-  height: 15px;
-  float: left;
-  margin-right: 5px;
+  width: 10px;
+  height: 10px;
 }
 
-#modal-register .form-wrapper .username {
-  margin-top: 25px;
-}
-
-#modal-register .tos {
-  padding-top: 5px;
-}
-
-#modal-register .tos span {
+#modal-register .form-wrapper span {
+  margin: 0;
   display: inline;
+  color: black;
+  text-decoration: underline;
 }
 
-#modal-register .form-wrapper * {
-  display: block;
+#modal-register .form-wrapper #zip, #modal-register .form-wrapper #city {
+  width: 60px;
+}
+
+#modal-register .form-wrapper #city {
+  display: inline;
 }
 
 body {
