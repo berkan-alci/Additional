@@ -6,10 +6,6 @@ const ejse = require('ejs-electron');
 const server = require("./server");
 const port = 3000;
 
-eapp.use(express.static(path.join(__dirname, '..', 'app', 'views')));
-eapp.use('/sass', express.static(path.join( __dirname, '..','public', 'sass')));
-eapp.use('/js', express.static(path.join( __dirname, '..','public', 'js')));
-eapp.use('/img', express.static(path.join(__dirname, '..','public', 'img')));
 
 let mainWindow = null;
 
