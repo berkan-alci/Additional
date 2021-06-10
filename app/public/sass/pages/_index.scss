@@ -57,9 +57,7 @@
         margin: 0px auto 0px auto;
         z-index: 100;
         .modal-register-top-text {
-            //color: $primary-one;
-            color: black;
-            
+            color: $primary-one;
         }
         h1 {
            margin: 25px;
@@ -67,8 +65,7 @@
             position: relative;
         }
         span {
-            //color: $secundary-one;
-            color: yellow;
+            color: $secundary-one;
             -webkit-text-stroke: 1px black;
         }
         .modal-register-top-logo {
@@ -113,7 +110,7 @@
             display: inline;
             color: black;
             text-decoration: underline;
-            //color: $secundary-one;
+            color: $secundary-one;
         }
         #zip, #city {
             width: 60px;
