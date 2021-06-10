@@ -15,7 +15,11 @@ const port = 3000;
 
 const app = express();
 
+//static files
 app.set('views', __dirname + '/../app/views');
+app.use('/sass', express.static(path.join( __dirname, '..', 'app', 'public', 'sass')));
+app.use('/js', express.static(path.join( __dirname, '..', 'app','public', 'js')));
+app.use('/img', express.static(path.join(__dirname, '..','app','public', 'img')));
 
 app.use(session({
     secret: 'iuqsdhfhsdhfqno134568!!',
