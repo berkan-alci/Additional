@@ -35,6 +35,10 @@ app.get('/', checkAuthenticated, (request, response) => {
     response.render('index.ejs', {user: request.session.user});
 });
 
+app.get('/casino', checkAuthenticated, (request, response) => {
+    response.render('casino.ejs', {user: request.session.user});
+});
+
 app.get('/login', checkNotAuthenticated, (req, res) => {
     res.render('login.ejs');
 });
@@ -102,52 +106,59 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
 
     } catch  {
         res.redirect('/register');
-    }
+    } 
 
-    if(password === confirmPassword) {
+    users.storeUser(user).then(() => {
+        res.redirect('/');
+        console.log('User was added successfully');
+    }).catch((error) => {
+        console.log('User was not added. ' + error);
+    });
 
-        users.getUserByUsername(username).then( (results1) => {
+    // if(password === confirmPassword) {
 
-            if (results1) {
-                res.render('register.ejs', {error: 'Username already exist.', user: user});
-                return;
-            }
+    //     users.getUserByUsername(username).then( (results1) => {
 
-            users.getUserByEmail(email).then( (results2) => {
+    //         if (results1) {
+    //             res.render('register.ejs', {error: 'Username already exist.', user: user});
+    //             return;
+    //         }
 
-                if (results2) {
-                    res.render('register.ejs', {error: 'Email already exist.', user: user});
-                    return;
-                }
+    //         users.getUserByEmail(email).then( (results2) => {
 
-                users.getUserByCard(cardNumber).then( (results3) => {
+    //             if (results2) {
+    //                 res.render('register.ejs', {error: 'Email already exist.', user: user});
+    //                 return;
+    //             }
 
-                    if (results3) {
-                        res.render('register.ejs', {error: 'Card number already exist.', user: user});
-                    } else {
-                        users.storeUser(user).then(() => {
-                            res.redirect('/');
-                            console.log('User was added successfully');
-                        }).catch((error) => {
-                            console.log('User was not added. ' + error);
-                        });
-                    }
+    //             users.getUserByCard(cardNumber).then( (results3) => {
 
-                }).catch((error) => {
-                    console.log(error);
-                });
+    //                 if (results3) {
+    //                     res.render('register.ejs', {error: 'Card number already exist.', user: user});
+    //                 } else {
+    //                     users.storeUser(user).then(() => {
+    //                         res.redirect('/');
+    //                         console.log('User was added successfully');
+    //                     }).catch((error) => {
+    //                         console.log('User was not added. ' + error);
+    //                     });
+    //                 }
 
-            }).catch((error) => {
-                console.log(error);
-            });
+    //             }).catch((error) => {
+    //                 console.log(error);
+    //             });
 
-        }).catch((error) => {
-            console.log(error);
-        });
+    //         }).catch((error) => {
+    //             console.log(error);
+    //         });
 
-    } else {
-        res.render('register.ejs', {error: 'Passwords do not match.', user: user});
-    }
+    //     }).catch((error) => {
+    //         console.log(error);
+    //     });
+
+    // } else {
+    //     res.render('register.ejs', {error: 'Passwords do not match.', user: user});
+    // }
 });
 
 app.delete('/logout', (req, res) => {
