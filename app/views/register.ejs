@@ -1,5 +1,6 @@
 <head>
     <%- include('./partials/head') %>
+    <script src="/js/register.js" defer></script>
 </head>
 
 
@@ -23,56 +24,67 @@
             <div class="modal-register-bottom">
                 <!--form here-->
                 <div class="form-wrapper">
-                    <form action="/register" method="post" class="register" id="register-info">
+                    <form class="register" id="register-info" novalidate>
+
+                        <p id="success-message"></p>
 
                         <div class="form-group">
                             <label for="username" class="username">Username</label>
-                            <input type="text" placeholder="Username" id="username" name="username" value="<%= locals.user ? user.userName : '' %>" required="required">
+                            <input type="text" placeholder="Username" id="username" name="username" autocomplete="username" value="<%= locals.user ? user.userName : '' %>" required="required">
+                            <div class="description" id="username-valid">error</div>
                         </div>
                     
                         <div class="form-group">
                             <label for="email-input">Email</label>
-                            <input type="email" placeholder="Bv:Henk@bazeke.odisee.be" id="email-input" name="email" value="<%= locals.user ? user.email : '' %>" required="required">
+                            <input type="email" placeholder="Bv:Henk@bazeke.odisee.be" id="email-input" name="email" autocomplete="email" value="<%= locals.user ? user.email : '' %>" required="required">
+                            <div class="description" id="email-input-valid">error</div>
                         </div>
                     
                         <div class="form-group">
                             <label for="password">Password</label>
                             <input type="password" placeholder="Password" id="password" name="password" required>
+                            <div class="description" id="password-valid">error</div>
                         </div>
                     
                         <div class="form-group">
                             <label for="confirm-password">Confirm Password</label>
                             <input type="password" placeholder="Confirm password" id="confirm-password" name="confirmPassword" required>
+                            <div class="description" id="confirm-password-valid">error</div>
                         </div>
                     
                         <div class="form-group">
                             <label for="address">Address</label>
-                            <input type="text" placeholder="Bv: Gentsestraat 123" id="address" name="street" value="<%= locals.user ? user.street : '' %>" required>
+                            <input type="text" placeholder="Bv: Gentsestraat 123" id="address" name="street" autocomplete="address-line1" value="<%= locals.user ? user.street : '' %>" required>
+                            <div class="description" id="address-valid">error</div>
                         </div>
                     
                         <div class="form-group">
                             <label for="city">City</label>
                             <input type="text" placeholder="City" id="city" name="city" value="<%= locals.user ? user.city : '' %>" required>
+                            <div class="description" id="city-valid">error</div>
                         </div>
                     
                         <div class="form-group">
                             <label for="zip">Zip</label>
-                            <input type="text" placeholder="Zip" id="zip" name="zip" value="<%= locals.user ? user.zip : '' %>" required>
+                            <input type="text" placeholder="Zip" id="zip" name="zip" autocomplete="postal-code" value="<%= locals.user ? user.zip : '' %>" required>
+                            <div class="description" id="zip-valid">error</div>
                         </div>
                     
                         <div class="form-group">
                             <label for="cardNumber">Card Number</label>
                             <input type="text" placeholder="Bv: BE55 1234 1234 1234" id="cardNumber" name="cardNumber" value="<%= locals.user ? user.cardNumber : '' %>" required>
+                            <div class="description" id="cardNumber-valid">error</div>
                         </div>
                     
                         <div class="form-group">
                             <label for="birth-date">Date of Birth</label>
                             <input type="date" id="birth-date" name="birthdate" value="<%= locals.user ? user.birthdate : '' %>" required>
+                            <div class="description" id="birthdate-valid">error</div>
                         </div>
                     
                         <div class="form-group">
-                            <input type="checkbox" name="tos" id="tos" class="checkbox" required>
-                            <label for="tos" class="tos">I have read <span>the user agreement</span></label>
+                            <input type="checkbox" name="tos" id="tos" class="checkbox" checked required><label for="tos" class="tos">I have read <span>the user agreement</span></label>
+                            <div class="description" id="tos-valid">error</div>
                         </div>
                     
                         <button type="submit">Register</button>
