@@ -146,6 +146,198 @@ button[type=submit] {
   border-radius: 10px;
 }
 
+button {
+  color: white;
+  background-color: green;
+}
+
+#game {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.playingField {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  width: 90%;
+  margin-left: 5%;
+}
+
+.upperField {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  -ms-flex-item-align: center;
+      align-self: center;
+  width: 100%;
+  height: 100px;
+}
+
+.lowerField {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  width: 80%;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  width: 100%;
+}
+
+.column {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  width: 10%;
+  height: 1fr;
+}
+
+.special {
+  width: 100%;
+}
+
+.red {
+  background-color: red;
+}
+
+.light {
+  -webkit-box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.6);
+          box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.6);
+}
+
+.black {
+  background-color: black;
+}
+
+.zeroButton {
+  width: 10%;
+}
+
+.numbers {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (8.33333%)[12];
+      grid-template-columns: repeat(12, 8.33333%);
+  -ms-grid-rows: (1fr)[3];
+      grid-template-rows: repeat(3, 1fr);
+  grid-auto-flow: column;
+  width: 80%;
+}
+
+/** Chips **/
+#chips {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  width: 100%;
+  height: 50px;
+}
+
+.chip {
+  width: 1fr;
+  height: 100%;
+}
+
+input[type="radio"] {
+  opacity: 0;
+  position: fixed;
+  width: 0;
+}
+
+input[type="radio"] + label {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  padding: 10px 20px;
+  border-radius: 25% 25%;
+}
+
+input[type="radio"]:checked + label {
+  background-color: #FFF500;
+  border: 2px solid #525252;
+}
+
+#chip10 {
+  background-image: url("../images/10.png");
+  background-size: 100% 100%;
+}
+
+#chip20 {
+  background-image: url("../images/20.png");
+  background-size: 100% 100%;
+}
+
+#chip50 {
+  background-image: url("../images/50.png");
+  background-size: 100% 100%;
+}
+
+#chip100 {
+  background-image: url("../images/100.png");
+  background-size: 100% 100%;
+}
+
+.badge {
+  position: absolute;
+  padding: 5px 5px;
+  border-radius: 50%;
+  background-color: #FFF500;
+  color: #525252;
+}
+
+/*table*/
+table, th, td {
+  border: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th {
+  background-color: #FFF500;
+}
+
+.delete {
+  width: 100%;
+  height: 100%;
+  background-color: #FFF500;
+  color: black;
+}
+
 #banner .banner {
   background-image: url("../../img/banner.png");
 }
