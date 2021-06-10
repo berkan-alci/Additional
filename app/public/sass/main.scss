@@ -1,15 +1,24 @@
+//abstracts
 @import './abstracts/helpers';
 @import './abstracts/variables';
 @import './abstracts/mixins';
 
+//base
 @import './base/reset';
 @import './base/typography';
 
+//components
 @import './components/button';
 @import './components/hamburger';
 
+//layout
 // @import './layout/container';
 @import './layout/header';
 @import './layout/footer';
 
+//pages
 @import './pages/index';
+
+body {
+    background-color: aqua ;
+}
