@@ -11,12 +11,15 @@ window.addEventListener('load', (e) => {
 
 
     const success = document.querySelector('#success-message');
+    const move = document.querySelector('#move-message');
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         success.style.display = "none";
         success.innerText ="";
+        move.style.display="none";
+        move.innerText="";
         
         resetErr();
         const isValid = validateForm();
@@ -60,27 +63,27 @@ window.addEventListener('load', (e) => {
 
     const sendRequest = async () => {
 
-        const data = {
-            username: username.value,
-            password: password.value,
-        }
-
+     
         const result = await fetch('/login', {
             method:'POST',
             headers: {
                 'Content-Type':'application/json'
             },
-            body: JSON.stringify(data)
-        })
-        // .then((response) => response.json())
+            body: JSON.stringify({
+                username: username.value,
+                password: password.value
+            })
+        }).then((res) => res.json())
 
-        // if(result.status === 'ok'){
-        //     alert('Login Successful!');
-        //     success.style.display ="block";
-        //     success.innerText = 'Login successful!';
-        //     reset();
-        // } else {
-        //     alert(result.error)
-        // }
+        if(result.status === 'ok'){
+            alert('Login Successful!');
+            success.style.display ="block";
+            success.innerText = 'Login successful!';
+            move.style.display="block";
+            move.innerText="Click here";
+            reset();
+        } else {
+            alert(result.error)
+        }
     }
 });

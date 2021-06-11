@@ -56,32 +56,47 @@ app.get('/register', checkNotAuthenticated, (req, res) => {
     res.render('register.ejs');
 });
 
-app.post('/login', checkNotAuthenticated, (request, response) => {
-   const { username, password } = request.body;
+app.get('/withdraw', checkAuthenticated, (request, response) =>{
+    response.render('partials/withdraw.ejs');
+});
 
+app.get('/add', checkAuthenticated, (request, response) =>{
+    response.render('partials/add.ejs');
+});
 
-    if (username && password) {
-        users.getUserByUsername(username).then( async (results) => {
-            if (await bcrypt.compare(password, results[0].password)) {
-                request.session.loggedin = true;
-                request.session.user = results[0];
-                delete request.session.user.password;
-                console.log(request.session.user);
-                response.render('index.ejs', {user: request.session.user});
-            } else {
-                console.log('Incorrect Username and/or Password!');
-                response.render('login.ejs', {username: username, status:'error', error: 'Incorrect Username and/or Password!'});
-            }
-        }).catch((error) => {
-            // response.send({
-            //     error: 'Incorrect Username and/or Password! ' + error,
-            //     status: 500
-            // });
-            console.log(error);
-        });
-    } else {
-        console.log('Please enter Username and Password!');
+app.get('/edit', checkAuthenticated, (request, response) =>{
+    response.render('partials/edit.ejs');
+});
+
+app.post('/login', checkNotAuthenticated, (req, res) => {
+   const username = req.body.username;
+   const password = req.body.password;
+
+   if(!username || typeof username !== 'string') {
+    return res.json({status:'error', error:'Invalid username!'});
     }
+
+    if(!password || typeof password !== 'string') {
+        return res.json({status:'error', error:'Invalid password!'});
+    }
+
+    try {
+        users.getUserByUsername(username).then(async (results) => {
+            if(await bcrypt.compare(password, results[0].password)) {
+                req.session.loggedin = true;
+                req.session.user = results[0];
+                delete req.session.user.password;
+                return res.json({status:'ok'});
+            } else {
+                return res.json({status:'error', error:'Invalid username/password!'});
+            }
+        })
+    } catch (error) {
+        console.log(error);
+        return res.json({status:'error', error:'Invalid username/password!'});
+    }
+
+   
 });
 
 app.post('/register', checkNotAuthenticated, async (req, res) => {
