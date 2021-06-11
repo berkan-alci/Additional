@@ -180,7 +180,7 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
 
 app.delete('/logout', (req, res) => {
     req.session.loggedin = false;
-    req.session.user = [];
+    req.session.user = null;
     res.redirect('/');
 });
 
