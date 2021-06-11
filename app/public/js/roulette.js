@@ -101,7 +101,8 @@
             .then(() => {
                 console.log('credit updated');
                 console.log(JSON.stringify(user));
-                //window.location.href = "/casino";
+
+                window.location.href = "/casino";
             })
             .catch(() => console.log('Error get'))
     }

@@ -266,7 +266,7 @@ app.put(
         console.log(body);
 
         const user = new User(
-            false,
+            id,
             body.username,
             body.password,
             body.email,
