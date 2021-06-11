@@ -43,6 +43,14 @@ app.get('/casino', checkAuthenticated, (request, response) => {
     response.render('casino.ejs', {user: request.session.user});
 });
 
+app.get('/contact', checkAuthenticated, (request, response) => {
+    response.render('contact.ejs');
+});
+
+app.get('/about', checkAuthenticated, (request, response) => {
+    response.render('about.ejs');
+});
+
 app.get('/profile', checkAuthenticated, (request, response) => {
     response.render('profile.ejs', {user: request.session.user});
     console.log(request.session.user);
