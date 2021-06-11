@@ -1,7 +1,7 @@
 .login-container {
     width: 100%;
     height: 100%;
-    margin-top: -3rem;
+    margin-top: 0rem;
     .modal-login-top {
         display: block;
         margin-top: 0;
@@ -10,15 +10,29 @@
         background-size: cover;
         width: 100%;
         height: 260px;
+        @include media(bphone) {
+            height: 300px;
+        }
+        @include media(stablet) {
+            float: left;
+            width: 50%;
+            height: 100%;
+        }
         .modal-login-top-logo, .modal-login-top-text {
             text-align: center;
             position: relative;
         }
         .modal-login-top-logo {
             padding-top: 50px;
+            @include media(bphone) {
+                padding-top: 60px;
+            }
         }
         .modal-login-top-text {
             margin-top: 40px;
+            @include media(bphone) {
+                margin-top: 50px;
+            }
         }
 
     }
@@ -31,26 +45,42 @@
         width: 100%;
         height: 260px;
         background-color: rgba(255, 255, 255, 0.5);
+        @include media(bphone) {
+            height: 300px;
+        }
+        @include media(stablet) {
+            float: left;
+            width: 50%;
+            height: 100%;
+        }
         
     }
 
 }
 .modal-login-bottom {
     text-align: center;
+    @include media(stablet) {
+        float: right;
+        width: 50%;
+        height: 100%;
+    }
     .form-wrapper * {
         display: block;
-        margin: auto 20px auto;
+        margin: auto ;
     }
     .form-wrapper {
-        text-align: start;
-        #username, #password {
-            margin: 0 auto 0 auto;
+        .form-group {
+            text-align: start;
+            padding: 1px;
+            width: 200px;
+            margin: 10px auto;
         }
-        label {
-            margin-top: 20px;
-        }
+        
         button[type="submit"] {
             margin: 20px auto 10px auto;
+        }
+        input:hover {
+            filter: drop-shadow(0 2px 2px #FFF500);
         }
     }
 }
