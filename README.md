@@ -5,6 +5,7 @@ Features:
 - Desktop application (electron)
 - EJS-Electron Combined with SASS
 - SQL Database
-- Custom made games: Roulette, Hi-Lo, Blackjack
+- Custom made game: Roulette
 - Custom API
+
 
