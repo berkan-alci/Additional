@@ -57,8 +57,8 @@ app.get('/register', checkNotAuthenticated, (req, res) => {
 });
 
 app.post('/login', checkNotAuthenticated, (request, response) => {
-    let username = request.body.username;
-    let password = request.body.password;
+   const { username, password } = request.body;
+
 
     if (username && password) {
         users.getUserByUsername(username).then( async (results) => {
@@ -70,7 +70,7 @@ app.post('/login', checkNotAuthenticated, (request, response) => {
                 response.render('index.ejs', {user: request.session.user});
             } else {
                 console.log('Incorrect Username and/or Password!');
-                response.render('login.ejs', {username: username, error: 'Incorrect Username and/or Password!'});
+                response.render('login.ejs', {username: username, status:'error', error: 'Incorrect Username and/or Password!'});
             }
         }).catch((error) => {
             // response.send({
@@ -155,6 +155,7 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
         console.log('User was added successfully');
     }).catch((error) => {
         console.log('User was not added. ' + error);
+       // ERROR MESSAGE FROM DB TO USER
     });
 });
 

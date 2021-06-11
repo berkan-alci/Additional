@@ -69,6 +69,11 @@ window.addEventListener('load', (e) => {
             isValid = false;
         }
 
+        if (address.value === "" ) {
+            setErr(errZip, 'Enter a valid Address!');
+            isValid = false;
+        }
+
         if (zip.value === "" || isNaN(zip.value)) {
             setErr(errZip, 'Enter a valid ZIP!');
             isValid = false;

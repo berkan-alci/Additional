@@ -1,18 +1,42 @@
-<h1>Login</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head') %>
+    <script src="/js/login.js" defer></script>
+</head>
+<body>
+    <header>
 
-<% if(locals.error) { %>
-    <p class="error"><%= error %></p>
-<% } %>
+    </header>
+    <main>
+        <h1>Login</h1>
 
-<form action="/login" method="POST">
-    <div>
-        <label for="username">username</label>
-        <input type="text" id="username" name="username" value="<%= locals.username ? username : '' %>" required>
-    </div>
-    <div>
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" required>
-    </div>
-    <button type="submit">Login</button>
-</form>
-<a href="/register">Register</a>
+    
+        <form method="POST" id="login-info" novalidate>
+
+            <p id="success-message"></p>
+
+            <div>
+                <label for="username">username</label>
+                <input type="text" id="username" name="username" value="<%= locals.username ? username : '' %>" required>
+                <div class="description" id="username-valid"></div>
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+                <div class="description" id="password-valid"></div>
+            </div>
+            <button type="submit">Login</button>
+            
+        </form>
+        <a href="/register">Register</a>
+
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>
+
+
+

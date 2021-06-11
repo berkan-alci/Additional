@@ -1,0 +1,15 @@
+.description {
+    margin-top: 0.5rem;
+    color: red;
+    display: none;
+}
+
+input.invalid {
+    color: red;
+    outline-color: red;
+}
+
+#success-message {
+    display: none;
+    color: #4a934a;
+}
