@@ -4,6 +4,20 @@ a, button, input, select, textarea, label, summary {
       touch-action: manipulation;
 }
 
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  min-height: 100vh;
+}
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -162,6 +176,7 @@ button[type=submit] {
 
 button[type=submit]:hover {
   cursor: pointer;
+  background: #cbc100;
 }
 
 .yellow-button {
