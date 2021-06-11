@@ -39,8 +39,15 @@ app.get('/', (request, response) => {
     response.render('index.ejs', {user: request.session.user});
 });
 
-app.get('/casino', checkAuthenticated, async (request, response) => {
-    response.render('casino.ejs', {user: await getUser(request)});
+app.get('/casino', checkAuthenticated, (request, response) => {
+
+    users.getUserByUsername(request.session.user.username).then((results) => {
+        request.session.user = results[0];
+        delete request.session.user.password;
+        console.log(request.session.user);
+    });
+
+    response.render('casino.ejs', {user: request.session.user});
 });
 
 app.get('/contact', checkAuthenticated, (request, response) => {
@@ -107,21 +114,19 @@ app.post('/login', checkNotAuthenticated, (req, res) => {
         console.log(error);
         return res.json({status:'error', error:'Invalid username/password!'});
     }
-
    
 });
 
-function getUser(req) {
-    if (req.session.loggedin) {
-        console.log(req.session.user);
-        console.log(req.session.user.username);
-        users.getUserByUsername(req.session.user.username).then(async (results) => {
-            req.session.user = results[0];
-            delete req.session.user.password;
-            console.log(req.session.user.username);
-            return req.session.user;
+function getUser(request) {
+    if (request.session.loggedin) {
+        users.getUserByUsername(request.session.user.username).then((results) => {
+            request.session.user = results[0];
+            delete request.session.user.password;
+            console.log(request.session.user);
+            return request.session.user;
         });
     } else {
+        console.log('null');
         return null;
     }
 }
