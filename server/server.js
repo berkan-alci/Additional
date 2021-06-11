@@ -39,8 +39,8 @@ app.get('/', (request, response) => {
     response.render('index.ejs', {user: request.session.user});
 });
 
-app.get('/casino', checkAuthenticated, (request, response) => {
-    response.render('casino.ejs', {user: request.session.user});
+app.get('/casino', checkAuthenticated, async (request, response) => {
+    response.render('casino.ejs', {user: await getUser(request)});
 });
 
 app.get('/profile', checkAuthenticated, (request, response) => {
@@ -102,6 +102,21 @@ app.post('/login', checkNotAuthenticated, (req, res) => {
 
    
 });
+
+function getUser(req) {
+    if (req.session.loggedin) {
+        console.log(req.session.user);
+        console.log(req.session.user.username);
+        users.getUserByUsername(req.session.user.username).then(async (results) => {
+            req.session.user = results[0];
+            delete req.session.user.password;
+            console.log(req.session.user.username);
+            return req.session.user;
+        });
+    } else {
+        return null;
+    }
+}
 
 app.post('/register', checkNotAuthenticated, async (req, res) => {
     const { username, password, email, city, zip, street, cardNumber, birthdate} = req.body;
