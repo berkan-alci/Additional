@@ -1,3 +1,92 @@
-#banner {
+#banneri {
+    background-image: url(/img/banner.png);
+    background-size: cover;
+    background-position: top center;
+    position: relative;
+    z-index: 1;
+    min-height: 20vh;
+    .banneri {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 50px;
+        justify-content: flex-start;
+
+        .banner-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 2rem;
+
+            .banner-brand {
+                text-transform: uppercase;
+                color: black;
+                width: auto;
+                font-weight: 600;
+                span {
+                    color: clr(sec);
+                    font-size: 2.5rem;
+                    font-weight: 600;
+
+                    @include media(mtablet){
+                        font-size: 3rem;
+                    }
+                }
+            }
+        }
+
+    }
     
+}
+
+#showcase {
+    min-height: 50vh;
+    .showcase {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0 50px;
+        margin: 0 auto;
+        
+
+        h2 {
+            text-transform: uppercase;
+            color: black;
+            width: auto;
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 2rem;
+            @include media(mtablet){
+                font-size: 3rem;
+            }
+            span {
+                color: clr(sec);
+                    font-size: 2.5rem;
+                    font-weight: 400;
+
+                    @include media(mtablet){
+                        font-size: 3rem;
+                    }
+            }
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        .showcase-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 2rem;
+            .grey-button {
+                margin-left: 20px;
+            }
+            
+        }
+
+
+    }
 }
