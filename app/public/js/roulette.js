@@ -4,7 +4,6 @@
  * @author Tibo Moreel
  */
 
-
     user = JSON.parse(user);
 
     //keep bets
