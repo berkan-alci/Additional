@@ -38,13 +38,12 @@ h3 {
     }
 }
 
-p {
+p, span {
     line-height: 1.5;
     letter-spacing: .1rem;
     font-weight: 300;
     font-size: 1.6rem;
     color: clr(par);
-    
 
     @include media(mtablet){
         font-size: 2.4rem;

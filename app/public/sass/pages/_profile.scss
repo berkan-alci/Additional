@@ -24,6 +24,11 @@
     margin-bottom: 2rem;
 }
 
+
+.sidebar-top h2 {
+    color: #ffffff;
+}
+
 .sidebar ul li {
     list-style: none;
     margin-bottom: 1.5rem;
@@ -38,7 +43,7 @@
     text-decoration: underline;
 }
 
-#main .wrapper {
+#main .container {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
@@ -73,7 +78,7 @@
 }
 
 .profile ul li span {
-    width: 10rem;
+    width: 20rem;
     font-weight: bold;
     margin-right: 3rem;
 }

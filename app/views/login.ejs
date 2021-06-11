@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head'); %>
+</head>
+<body>
+    
+    
+<!-- Header -->
+<%- include('./partials/header'); %>
+
 <h1>Login</h1>
 
 <% if(locals.error) { %>
@@ -16,3 +27,6 @@
     <button type="submit">Login</button>
 </form>
 <a href="/register">Register</a>
+
+</body>
+</html>
