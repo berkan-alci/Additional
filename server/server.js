@@ -184,6 +184,8 @@ app.delete('/logout', (req, res) => {
     res.redirect('/');
 });
 
+
+
 function checkAuthenticated(req, res, next) {
     if(req.session.loggedin) {
         return next()
