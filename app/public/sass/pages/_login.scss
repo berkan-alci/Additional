@@ -3,3 +3,29 @@
     margin-bottom: 3rem;
   }
 }
+#modal-login{
+    .modal-login-bg{
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        position: fixed;
+        top: 0;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        .modal-content{
+            background-color: $primary-six;
+
+        }
+    }
+    .form-wrapper *  {
+        display: block;
+        align-items: center;
+        margin: auto 12% auto 12%;
+
+    }
+    .form-group {
+        margin: auto 12% auto 12%;
+        display: block;
+    }
+}
