@@ -57,15 +57,19 @@ app.get('/register', checkNotAuthenticated, (req, res) => {
 });
 
 app.get('/withdraw', checkAuthenticated, (request, response) =>{
-    response.render('partials/withdraw.ejs');
+    response.render('./partials/withdraw.ejs');
 });
 
 app.get('/add', checkAuthenticated, (request, response) =>{
-    response.render('partials/add.ejs');
+    response.render('./partials/add.ejs');
 });
 
 app.get('/edit', checkAuthenticated, (request, response) =>{
-    response.render('partials/edit.ejs');
+    response.render('./partials/edit.ejs');
+});
+
+app.get('/info', checkAuthenticated, (request, response) => {
+    response.render('./partials/info.ejs');
 });
 
 app.post('/login', checkNotAuthenticated, (req, res) => {
