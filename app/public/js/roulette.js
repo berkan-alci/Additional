@@ -7,7 +7,9 @@
 
     //keep bets
     let bets = [];
-    let max = 120;
+    let max = user.credit;
+
+    console.log(user);
 
     window.addEventListener('load', async function () {
         await createBoard();
@@ -86,7 +88,7 @@
 
     //get random winning number
     function play() {
-        let ran = Math.floor(Math.random() * 3) + 1;
+        let ran = Math.floor(Math.random()) + 1;
         console.log(ran);
         for (let i = 0; i < ran; i++) {
             setTimeout(() => {
@@ -478,7 +480,7 @@
 
         let toEnd = document.createElement('button');
         toEnd.innerHTML = '19 to 36';
-        toEnd.name = '19 to 36'
+        toEnd.name = '19 to 36';
         toEnd.classList.add('special');
         toEnd.addEventListener('click', function (e) {
             buttonClick(e)

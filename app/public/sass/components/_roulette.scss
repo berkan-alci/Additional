@@ -109,22 +109,22 @@ input[type="radio"]:checked + label {
 }
 
 #chip10 {
-    background-image: url("../images/10.png");
+    background-image: url("../../img/10.png");
     background-size: 100% 100%;
 }
 
 #chip20 {
-    background-image: url("../images/20.png");
+    background-image: url("../../img/20.png");
     background-size: 100% 100%;
 }
 
 #chip50 {
-    background-image: url("../images/50.png");
+    background-image: url("../../img/50.png");
     background-size: 100% 100%;
 }
 
 #chip100 {
-    background-image: url("../images/100.png");
+    background-image: url("../../img/100.png");
     background-size: 100% 100%;
 }
 
@@ -158,4 +158,10 @@ td {
     height: 100%;
     background-color: #FFF500;
     color: black;
+}
+
+.roulette {
+    h1 {
+        margin-bottom: 3rem;
+    }
 }

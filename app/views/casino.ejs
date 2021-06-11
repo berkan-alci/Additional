@@ -5,18 +5,22 @@
     <script type="text/javascript" src="/js/roulette.js" defer></script>
 </head>
 <body>
-    <header>
+<!-- Header -->
+<%- include('./partials/header'); %>
 
-    </header>
-    <main>
-        
+<% if (locals.user) { %>
+    <script>
+        var user = '<%- JSON.stringify(user) %>';
+    </script>
+<% } %>
 
-       
-            <%- include('./partials/roulette'); %> 
-        
-    </main>
-    <footer>
-
-    </footer>
+<main>
+    <div class="roulette container">
+        <h1>Roulette</h1>
+        <%- include('./partials/roulette'); %>
+    </div>
+</main>
+<!-- Footer -->
+<%- include('./partials/footer'); %>
 </body>
 </html>
