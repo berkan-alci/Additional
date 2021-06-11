@@ -1,12 +1,13 @@
 footer {
     background-color: #353535;
+    margin-top: 3rem;
+    
     .footer {
         display: flex;
         flex-flow: row wrap;
         justify-content: space-between;
         align-items: center;
 
-        margin-top: 3rem;
         padding: 2rem;
         p, a {
             color: #fff;
