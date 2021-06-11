@@ -51,7 +51,7 @@
         @include media(stablet) {
             float: left;
             width: 50%;
-            height: 100%;
+            height: 270px;
         }
         
     }
@@ -74,10 +74,16 @@
             padding: 1px;
             width: 200px;
             margin: 10px auto;
+            @include media(stablet) {
+                margin-top: 30px;
+            }
         }
         
         button[type="submit"] {
             margin: 20px auto 10px auto;
+            @include media(stablet) {
+                margin-top: 30px;
+            }
         }
         input:hover {
             filter: drop-shadow(0 2px 2px #FFF500);
