@@ -1,0 +1,225 @@
+#banner {
+    .banner {
+        background-image: url('../../img/banner.png');
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+#modal-login{
+    .modal-login-bg{
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        position: fixed;
+        top: 0;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        .modal-content{
+            background-color: $primary-six;
+
+        }
+    }
+    .form-wrapper *  {
+        display: block;
+        align-items: center;
+        margin: auto 12% auto 12%;
+
+    }
+    .form-group {
+        margin: auto 12% auto 12%;
+        display: block;
+    }
+}
+
+#modal-register {
+    margin-top: -3rem;
+
+    .modal-register-top::before {
+        content: "";    
+        position: absolute;
+        overflow: hidden;
+        top: 143px;
+        left: auto;
+        width: 100%;
+        height: 260px;
+        background-color: rgba(255,255,255,0.5);
+        @include media(mphone) {
+            height: 260px;
+        }
+        @include media(bphone) {
+            height: 350px;
+        }
+        @include media(stablet) {
+            height: 110%;
+            width: 50%;
+        }
+        @include media(mtablet) {
+            width: 65%;
+        }
+        
+    }
+    .modal-register-top{
+        display: block;
+        margin-top: 0;
+        background-image: url("../../img/poker.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 260px;
+        width: 100%;
+        @include media(mphone) {
+            height: 260px;
+        }
+        @include media(bphone) {
+            height: 350px;
+        }
+        @include media(stablet) {
+            display: inline;
+            float: left;
+            height: 110%;
+            width: 50%;
+        }
+        @include media(mtablet) {
+          width: 65%;       
+        }
+        
+        
+        .modal-register-top-text {
+            color: $primary-one;
+            text-align: center;
+        }
+        h1 {
+            margin: 25px auto;
+            margin-bottom: 0;
+            position: relative;
+        }
+        span {
+            color: $secondary-one;
+            -webkit-text-stroke: 1px black;
+            font-size: 2rem;
+            font-weight: 900;
+        }
+        .modal-register-top-logo {
+            display: flex;
+            position: relative;
+            justify-content: center;
+            padding-top: 50px;
+            @include media(bphone) {
+                padding-top:  70px;
+            }
+            @include media(stablet) {
+                padding-top: 30%;
+            }
+        }
+    }
+    .modal-register-bottom{
+        background-color: white;
+        @include media(stablet) {
+            float: right;
+            width: 50%;
+            height: 110%;
+        }
+        @include media(mtablet) {
+            width: 35%;       
+        }
+    }
+    .form-wrapper *  {
+        display: block;
+        align-items: center;
+        margin: auto 12% auto 12%;
+        @include media(bphone) {
+            margin: auto 20% auto 20%;
+        }
+        @include media(ebphone) {
+            margin: auto 23% auto 23%;
+        }
+
+    }
+    .form-wrapper {
+        label[for="username"] {
+            padding-top: 20px;
+            margin-top: 0;
+        }
+        label {
+            font-size: 13px;
+            margin: 20px auto 5px auto;
+        }
+        input{
+            margin: 0; 
+            
+        }
+        input:hover {
+            filter: drop-shadow(0 2px 2px #FFF500);
+        }
+        .checkbox {
+            color: green;
+            border-radius: 20em;
+            width: 10px;
+            height: 10px;
+            margin: 20px 15px 20px 0px ;
+        }
+        span {
+            margin: 0;
+            font-size: 1.2em;
+            display: inline;
+            color: black;
+            text-decoration: underline;
+            color: $primary-one;
+        }
+        #zip, #city {
+            width: 60px;
+        }
+         .form-group:nth-of-type(6) {
+            margin: auto 20px auto 20px;
+            
+        }
+        .city-zip-wrapper {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            background-color: black;
+            width: 200px;
+            height: 40px;
+        }
+        .form-group:nth-of-type(9){
+            margin-bottom: 10px;
+        }
+        .form-group:last-of-type * {
+            display: initial;
+
+        }
+        #L {
+            text-align: center;
+        }
+        a {
+            font-size: 1.2em;
+            margin: 20px 8% auto 8%;
+            padding-bottom: 20px;
+        }
+        
+    }
+    .city-zip-wrapper {
+        label {
+            padding: 0;
+            margin: 0;
+
+        }
+        input {
+            padding-top: 0;
+        }
+    }
+    .city-zip-wrapper:first-child {
+        margin-left: 0;
+    }
+    .city-zip-wrapper:last-child {
+        margin-right: 0;
+    }
+}
+
+
+
+
+
+
