@@ -2,9 +2,6 @@
     background-color: #353535;
     margin-bottom: 3rem;
     padding: 2rem;
-    a {
-        color: #ffffff;
-    }
     
     .nav-bar {
         display: flex;
@@ -29,6 +26,9 @@
             margin-right: 4rem;
             text-decoration: none;
         }
+        a {
+            color: #ffffff;
+        }
     }
 
     .nav-buttons {
@@ -37,6 +37,8 @@
         align-items: center;
         a {
             text-decoration: none;
+            min-width: 15rem;
+            text-align: center;
         }
     }
 

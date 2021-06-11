@@ -133,6 +133,13 @@ a:hover {
   text-decoration: underline;
 }
 
+button {
+  line-height: 1.5;
+  letter-spacing: .1rem;
+  font-weight: 300;
+  font-size: 1.6rem;
+}
+
 input {
   width: 200px;
   height: 24px;
@@ -155,9 +162,8 @@ button[type=submit] {
 
 .yellow-button {
   border: none;
-  border-radius: .5rem;
+  border-radius: 1rem;
   padding: 1rem 1.5rem;
-  font-size: 1.3rem;
   font-weight: bold;
   color: #000000;
   -webkit-box-shadow: 5px 5px 20px rgba(103, 103, 103, 0.25);
@@ -172,9 +178,8 @@ button[type=submit] {
 
 .grey-button {
   border: none;
-  border-radius: .5rem;
+  border-radius: 1rem;
   padding: 1rem 1.5rem;
-  font-size: 1.3rem;
   font-weight: bold;
   -webkit-box-shadow: 5px 5px 20px rgba(103, 103, 103, 0.25);
           box-shadow: 5px 5px 20px rgba(103, 103, 103, 0.25);
@@ -433,10 +438,6 @@ input.invalid {
   padding: 2rem;
 }
 
-#header a {
-  color: #ffffff;
-}
-
 #header .nav-bar {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -486,6 +487,10 @@ input.invalid {
   text-decoration: none;
 }
 
+#header .nav-items ul a {
+  color: #ffffff;
+}
+
 #header .nav-buttons {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -501,6 +506,8 @@ input.invalid {
 
 #header .nav-buttons a {
   text-decoration: none;
+  min-width: 15rem;
+  text-align: center;
 }
 
 #header .nav-buttons a, #header .nav-buttons form {
@@ -509,6 +516,67 @@ input.invalid {
 
 #header .hamburger {
   display: none;
+}
+
+footer {
+  background-color: #353535;
+}
+
+footer .footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 3rem;
+  padding: 2rem;
+}
+
+footer .footer p, footer .footer a {
+  color: #fff;
+}
+
+footer .group ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+footer .group ul li {
+  margin-right: 3rem;
+}
+
+footer .social-icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+footer .social-icons img {
+  width: 2rem;
+  margin-left: 2rem;
 }
 
 .container {

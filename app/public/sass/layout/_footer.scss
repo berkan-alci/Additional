@@ -1,0 +1,35 @@
+footer {
+    background-color: #353535;
+    .footer {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: center;
+
+        margin-top: 3rem;
+        padding: 2rem;
+        p, a {
+            color: #fff;
+        }
+    }
+        .group ul {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+
+            li {
+                margin-right: 3rem;
+            }
+        }
+
+        .social-icons {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+
+            img {
+                width: 2rem;
+                margin-left: 2rem;
+            }
+        }
+}
