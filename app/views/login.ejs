@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
     <%- include('./partials/head'); %>
+    <script src="/js/login.js" defer></script>
 </head>
 <body>
-    
-    
+
+
 <!-- Header -->
 <%- include('./partials/header'); %>
 
@@ -15,18 +16,31 @@
     <p class="error"><%= error %></p>
 <% } %>
 
-<form action="/login" method="POST">
+<form method="POST" id="login-info" novalidate>
+
+    <p id="success-message"></p>
+
     <div>
         <label for="username">username</label>
         <input type="text" id="username" name="username" value="<%= locals.username ? username : '' %>" required>
+        <div class="description" id="username-valid"></div>
     </div>
     <div>
         <label for="password">Password</label>
         <input type="password" id="password" name="password" required>
+        <div class="description" id="password-valid"></div>
     </div>
     <button type="submit">Login</button>
+
 </form>
 <a href="/register">Register</a>
 
+</main>
+<footer>
+
+</footer>
 </body>
 </html>
+
+
+

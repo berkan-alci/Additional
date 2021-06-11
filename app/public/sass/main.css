@@ -374,6 +374,22 @@ th {
   color: black;
 }
 
+.description {
+  margin-top: 0.5rem;
+  color: red;
+  display: none;
+}
+
+input.invalid {
+  color: red;
+  outline-color: red;
+}
+
+#success-message {
+  display: none;
+  color: #4a934a;
+}
+
 .nav-bar {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -590,10 +606,6 @@ th {
   width: 100%;
   padding-bottom: 1rem;
   margin-bottom: 2rem;
-}
-
-.sidebar-top h2 {
-  color: #ffffff;
 }
 
 .sidebar ul li {
