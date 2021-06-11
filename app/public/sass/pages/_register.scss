@@ -7,32 +7,7 @@
         }
     }
 }
-#modal-login{
-    .modal-login-bg{
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.6);
-        position: fixed;
-        top: 0;
-        display: none;
-        justify-content: center;
-        align-items: center;
-        .modal-content{
-            background-color: $primary-six;
 
-        }
-    }
-    .form-wrapper *  {
-        display: block;
-        align-items: center;
-        margin: auto 12% auto 12%;
-
-    }
-    .form-group {
-        margin: auto 12% auto 12%;
-        display: block;
-    }
-}
 
 #modal-register {
     margin-top: -3rem;
@@ -58,6 +33,7 @@
         }
         @include media(mtablet) {
             width: 65%;
+            height: 220%;
         }
         
     }
@@ -65,7 +41,7 @@
         display: block;
         margin-top: 0;
         background-image: url("../../img/poker.jpg");
-        background-size: cover;
+        background-size: contain;
         background-repeat: no-repeat;
         height: 260px;
         width: 100%;
@@ -76,13 +52,14 @@
             height: 350px;
         }
         @include media(stablet) {
-            display: inline;
+            display: block;
             float: left;
             height: 110%;
             width: 50%;
         }
         @include media(mtablet) {
-          width: 65%;       
+          width: 65%;
+          height: 110%;    
         }
         
         
@@ -129,15 +106,11 @@
         display: block;
         align-items: center;
         margin: auto 12% auto 12%;
-        @include media(bphone) {
-            margin: auto 20% auto 20%;
-        }
-        @include media(ebphone) {
-            margin: auto 23% auto 23%;
-        }
+        
 
     }
     .form-wrapper {
+        
         label[for="username"] {
             padding-top: 20px;
             margin-top: 0;
@@ -168,19 +141,12 @@
             text-decoration: underline;
             color: $primary-one;
         }
-        #zip, #city {
-            width: 60px;
-        }
-         .form-group:nth-of-type(6) {
-            margin: auto 20px auto 20px;
-            
-        }
+         
         .city-zip-wrapper {
             display: flex;
             flex-flow: row nowrap;
             justify-content: space-between;
-            background-color: black;
-            width: 200px;
+            width: 180px;
             height: 40px;
         }
         .form-group:nth-of-type(9){
@@ -197,10 +163,24 @@
             font-size: 1.2em;
             margin: 20px 8% auto 8%;
             padding-bottom: 20px;
+            @include media(stablet) {
+                font-size: 1.4em;
+                font-weight: 400;
+            }
         }
         
     }
     .city-zip-wrapper {
+        margin-top: 20px;
+        .form-group:nth-of-type(1) {
+            margin-left: 0px;
+        }
+        .form-group:nth-of-type(2) {
+            margin-right: -20px;
+            margin-bottom: 1.5px;
+            display: block;
+            width: 60px;
+        }
         label {
             padding: 0;
             margin: 0;
@@ -212,9 +192,14 @@
     }
     .city-zip-wrapper:first-child {
         margin-left: 0;
+        margin: 0;
     }
     .city-zip-wrapper:last-child {
         margin-right: 0;
+        margin: 0;
+    }
+    #zip, #city {
+        width: 60px;
     }
 }
 
