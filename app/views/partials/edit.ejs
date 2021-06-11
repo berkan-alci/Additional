@@ -1,3 +1,30 @@
+<!--<section class="profile">-->
+<!--    <div class="profile-top">-->
+<!--        <div class="pf-picture"><img src="img/stick-figure-40652_1280(1).png"></div>-->
+<!--        <h3><%= user.username %></h3>-->
+<!--    </div>-->
+
+<!--    <div>-->
+<!--        <form class="edit-password" novalidate>-->
+
+<!--            <p id="success-message"></p>-->
+<!--            <div class="form-group">-->
+<!--                <label for="password">New password</label>-->
+<!--                <input type="password" placeholder="Password" id="password" name="password" required>-->
+<!--                <div class="description" id="password-valid"></div>-->
+<!--            </div>-->
+
+<!--            <div class="form-group">-->
+<!--                <label for="confirm-password">Confirm Password</label>-->
+<!--                <input type="password" placeholder="Confirm password" id="confirm-password" name="confirmPassword" required>-->
+<!--                <div class="description" id="confirm-password-valid"></div>-->
+<!--            </div>-->
+
+<!--            <button type="submit">Change Password</button>-->
+<!--        </form>-->
+<!--    </div>-->
+<!--</section>-->
+
 <section class="profile">
     <div class="profile-top">
         <div class="pf-picture"><img src="img/stick-figure-40652_1280(1).png"></div>
@@ -5,23 +32,17 @@
     </div>
 
     <div>
-        <form class="edit-password" novalidate>
-
-            <p id="success-message"></p>
-            <div class="form-group">
-                <label for="password">New password</label>
-                <input type="password" placeholder="Password" id="password" name="password" required>
-                <div class="description" id="password-valid"></div>
-            </div>
-
-            <div class="form-group">
-                <label for="confirm-password">Confirm Password</label>
-                <input type="password" placeholder="Confirm password" id="confirm-password" name="confirmPassword" required>
-                <div class="description" id="confirm-password-valid"></div>
-            </div>
-
-            <button type="submit">Change Password</button>
-        </form>
+        <ul>
+            <li><span>Email:</span><p><%= user.email %></p></li>
+            <li><span>Address:</span><p><%= user.city %> <%= user.zip %>, <%= user.street %></p></li>
+            <li><span>Birthday:</span><p><%= (new Date(user.birthdate)).toLocaleDateString("be-BE") %></p></li>
+            <li><span>Card number:</span>
+                <p>
+                    <%= user.card_number.substr(0, 4) + ' ' + user.card_number.substr(4, 4) + ' '
+                    + user.card_number.substr(8, 4) + ' ' + user.card_number.substr(12) %>
+                </p>
+            </li>
+        </ul>
     </div>
 </section>
 

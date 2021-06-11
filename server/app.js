@@ -85,7 +85,7 @@ app.put(
 
         users.putUser(user).then(() => {
             res.send({
-                message: 'User update was successfully',
+                message: 'User update was successfully !!',
                 status: 201
             });
         }).catch((error) => {

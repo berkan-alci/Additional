@@ -35,7 +35,7 @@ app.set('view-engine', 'ejs');
 
 // Authentication
 
-app.get('/', checkAuthenticated, (request, response) => {
+app.get('/', (request, response) => {
     response.render('index.ejs', {user: request.session.user});
 });
 
@@ -277,9 +277,12 @@ app.put(
             body.credit,
         );
 
-        users.putUser(user).then(() => {
+        console.log('testtt:');
+        console.log(user);
+
+        users.putUser(user).then((e) => {
             res.send({
-                message: 'User update was successfully',
+                message: 'User update was successfully !!',
                 status: 201
             });
         }).catch((error) => {

@@ -68,7 +68,7 @@ module.exports.storeUser = storeUser;
 
 async function putUser(user) {
     const conn = await connection.getDatabaseConnection();
-    const query = 'UPDATE users SET username = ?, email = ?, city = ?, zip = ?, street = ?, card_number = ?, birthdate = ? WHERE id = ?';
+    const query = 'UPDATE users SET username = ?, email = ?, city = ?, zip = ?, street = ?, card_number = ?, birthdate = ?, credit = ? WHERE id = ?';
     const [results] = await conn.query(query, [
         user.userName,
         user.email,
@@ -77,6 +77,7 @@ async function putUser(user) {
         user.street,
         user.cardNumber,
         user.birthdate,
+        user.credit,
         user.id
     ]);
     await conn.end();

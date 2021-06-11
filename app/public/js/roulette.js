@@ -5,15 +5,15 @@
  */
 
 
+    user = JSON.parse(user);
+
     //keep bets
     let bets = [];
     let max = user.credit;
 
-    console.log(user);
-
     window.addEventListener('load', async function () {
         await createBoard();
-        document.getElementById('max').innerHTML = 'Money:' + max;
+        document.getElementById('max').innerHTML = 'Money: $' + max;
         //listen to play
         document.getElementById('play').addEventListener('click', function () {
             play();
@@ -84,6 +84,26 @@
             }
         }
         updateBets();
+    }
+
+    //update credit in database
+    function updateCredit(credit) {
+        user.credit = credit;
+        console.log('here:');
+        console.log(user);
+        fetch('http://localhost:3000/api/users/' + user.id, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(() => {
+                console.log('credit updated');
+                console.log(JSON.stringify(user));
+                //window.location.href = "/casino";
+            })
+            .catch(() => console.log('Error get'))
     }
 
     //get random winning number
@@ -227,11 +247,13 @@
             alert('YOU WIN ' + win + '!!!!');
             max += win;
         }
+
+        updateCredit(max);
     }
 
     //update bets table
     function updateBets() {
-        document.getElementById('max').innerHTML = 'Money:' + max;
+        document.getElementById('max').innerHTML = 'Money: $' + max;
         console.log(max);
         let table = document.getElementById('bets');
         console.log(Object.keys(bets).length);
