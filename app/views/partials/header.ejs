@@ -3,16 +3,10 @@
         <div class="header container">
             <div class="nav-bar">
                 <div class="logo">
-                    <a href="./index.ejs"><img src="img/Logo.svg" alt="Better gambling Logo"></a>
+                    <a href="/"><img src="img/Logo.svg" alt="Better gambling Logo"></a>
                 </div>
 
                 <div class="nav-list">
-                    <div class="hamburger">
-                        <div class="bar-one"></div>
-                        <div class="bar-two"></div>
-                        <div class="bar-three"></div>
-                    </div>
-
                     <div class="nav-items">
                         <ul>
                             <li><a class="nav" href="/casino">Casino</a></li>
@@ -24,17 +18,27 @@
 
                     <% if (locals.user) { %>
                         <div class="nav-buttons">
-                            <a class="btn-prim" href="/profile"><%= user.username %></a>
+                            <a class="" href="/profile"><button class="profile-button">
+                                <p><%= user.username %></p>
+                                <p>$<%= user.credit %></p>
+                            </button></a>
                             <form action="/logout?_method=DELETE" method="POST">
-                                <button type="submit" class="grey-button">Log Out</button>
+                                <button type="submit" class="log-out">Log Out</button>
                             </form>
                         </div>
                     <% } else { %>
                         <div class="nav-buttons">
-                            <a class="btn-prim" href="/register">Register</a>
+                            <a class="grey-button" href="/register">Register</a>
                             <a class="yellow-button" href="/login">Login</a>
                         </div>
                     <% } %>
+
+                    
+                    <div class="hamburger">
+                        <div class="bar-one"></div>
+                        <div class="bar-two"></div>
+                        <div class="bar-three"></div>
+                    </div>
                 </div>
             </div>
         </div>

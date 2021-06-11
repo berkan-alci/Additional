@@ -1,0 +1,25 @@
+.profile-button {
+    background-color: unset;
+    border: 2px solid clr(sec);
+    border-radius: 5rem;
+    padding: 1.5rem 3rem;
+
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+
+    p:first-child {
+        margin-right: 4rem;
+        color: clr(p6);
+    }
+
+    p:nth-child(2) {
+        color: clr(sec);
+    }
+}
+
+.profile-button:hover {
+    cursor: pointer;
+    text-decoration: none;
+    background-color: #525252;
+}

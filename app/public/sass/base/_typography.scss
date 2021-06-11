@@ -56,9 +56,14 @@ a {
     font-weight: 300;
     font-size: 1.6rem;
     color: clr(p1); // p6
+    text-decoration: none;
     
 
     @include media(mtablet){
         font-size: 2.4rem;
     }
+}
+
+a:hover {
+    text-decoration: underline;
 }
