@@ -20,12 +20,14 @@
                             <li><a class="nav" href="#">Contact</a></li>
                         </ul>
                     </div>
-                        
-    
+
                     <div class="nav-buttons">
                         <a class="btn-prim" href="/login">Login</a>
                         <a class="btn-prim" href="/register">Register</a>
                     </div>
+                    <% if(locals.user) { %>
+                        <a class="btn-prim" href="/profile"><%= user.username %></a>
+                    <% } %>
 
                 </div>
             </div>

@@ -1,0 +1,93 @@
+.sidebar {
+    color: #ffffff;
+    padding: 2rem 0;
+
+    /* Color3 */
+    background: #525252;
+
+    /* BoxShadow */
+    box-shadow: 5px 5px 20px rgba(103, 103, 103, 0.25);
+    border-radius: 20px;
+    width: 20rem;
+
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+
+    text-align: center;
+}
+
+.sidebar-top {
+    border-bottom: solid 3px #ffffff;
+    width: 100%;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+
+.sidebar ul li {
+    list-style: none;
+    margin-bottom: 1.5rem;
+}
+
+.sidebar ul li a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.sidebar ul li a:hover {
+    text-decoration: underline;
+}
+
+#main .wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
+
+.profile-top {
+    margin: 2rem 0 4rem;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+.profile-top h3 {
+    margin-left: 2rem;
+}
+
+.pf-picture img {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 5rem;
+}
+
+.profile ul {
+    list-style: none;
+}
+
+.profile ul li {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.profile ul li span {
+    width: 10rem;
+    font-weight: bold;
+    margin-right: 3rem;
+}
+
+.edit-button {
+    margin: 2rem 0;
+    width: 100%;
+}
+
+.credit p {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.credit {
+    margin-top: 5rem;
+}
