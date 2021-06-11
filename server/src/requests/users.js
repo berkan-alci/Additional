@@ -68,19 +68,21 @@ module.exports.storeUser = storeUser;
 
 async function putUser(user) {
     const conn = await connection.getDatabaseConnection();
-    const query = 'UPDATE users SET username = ?, email = ?, city = ?, zip = ?, street = ?, card_number = ?, birthdate = ?, credit = ? WHERE id = ?';
+    // const query = 'UPDATE users SET username = ?, email = ?, city = ?, zip = ?, street = ?, card_number = ?, birthdate = ?, credit = ? WHERE id = ?';
+    const query = 'UPDATE users SET credit = ? WHERE id = ?';
     const [results] = await conn.query(query, [
-        user.userName,
-        user.email,
-        user.city,
-        user.zip,
-        user.street,
-        user.cardNumber,
-        user.birthdate,
+        // user.userName,
+        // user.email,
+        // user.city,
+        // user.zip,
+        // user.street,
+        // user.cardumber,
+        // user.birthdate,
         user.credit,
         user.id
     ]);
     await conn.end();
+    await console.log(results);
     return results;
 }
 

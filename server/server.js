@@ -184,8 +184,6 @@ app.delete('/logout', (req, res) => {
     res.redirect('/');
 });
 
-
-
 function checkAuthenticated(req, res, next) {
     if(req.session.loggedin) {
         return next()
@@ -264,23 +262,27 @@ app.put(
         const body = req.body;
         const id = req.params.id;
 
+        console.log('body:');
+        console.log(body);
+
         const user = new User(
             false,
-            body.userName,
+            body.username,
             body.password,
             body.email,
             body.city,
             body.zip,
             body.street,
-            body.cardNumber,
+            body.card_number,
             body.birthdate,
             body.credit,
         );
 
-        console.log('testtt:');
+        console.log('user:');
         console.log(user);
 
         users.putUser(user).then((e) => {
+            console.log(e);
             res.send({
                 message: 'User update was successfully !!',
                 status: 201
