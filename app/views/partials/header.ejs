@@ -2,19 +2,29 @@
     <section id="header">
         <div class="header container">
             <div class="nav-bar">
-                <div class="logo">
-                    <a href="/"><img src="img/Logo.svg" alt="Better gambling Logo"></a>
-                </div>
+                <div class='logoMenu'>
+                    <div class="logo">
+                        <a href="/"><img src="img/Logo.svg" alt="Better gambling Logo"></a>
+                    </div>
 
+                    <a href="javascript:void(0);" class="icon" onclick="hamburgerMenu()">
+                        <p class="fa fa-bars">Menu</p>
+                    </a>
+                </div>
                 <div class="nav-list">
                     <div class="nav-items">
                         <ul>
                             <li><a class="nav" href="/casino">Casino</a></li>
-                            <li><a class="nav" href="#">About Us</a></li>
-                            <li><a class="nav" href="#">Contact</a></li>
+                            <li><a class="nav" href="/about">About Us</a></li>
+                            <li><a class="nav" href="/contact">Contact</a></li>
                         </ul>
                     </div>
 
+                    <div class="hamburger">
+                        <div class="bar-one"><a class="nav" href="/casino">Casino</a></div>
+                        <div class="bar-two"><a class="nav" href="/about">About Us</a></div>
+                        <div class="bar-three"><a class="nav" href="/contact">Contact</a></div>
+                    </div>
 
                     <% if (locals.user) { %>
                         <div class="nav-buttons">
@@ -34,11 +44,8 @@
                     <% } %>
 
                     
-                    <div class="hamburger">
-                        <div class="bar-one"></div>
-                        <div class="bar-two"></div>
-                        <div class="bar-three"></div>
-                    </div>
+                    
+                    
                 </div>
             </div>
         </div>

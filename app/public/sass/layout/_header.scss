@@ -5,16 +5,27 @@
     
     .nav-bar {
         display: flex;
-        flex-flow: row nowrap;
-        align-items: center;
+        flex-flow: column nowrap;
+
+        .logoMenu {
+            display: flex;
+            flex-flow: row;
+            align-items: center;
+            justify-content: space-between;
+        }
     }
 
     .nav-list {
         display: flex;
-        flex-flow: row nowrap;
+        flex-flow: column nowrap;
         justify-content: space-between;
         align-items: center;
-        width: 100%;
+        align-content: center;
+
+    }
+
+    .nav-items {
+        display: none;
     }
 
     .nav-items ul {
@@ -33,12 +44,14 @@
 
     .nav-buttons {
         display: flex;
-        flex-flow: row nowrap;
+        flex-flow: column nowrap;
         align-items: center;
+        justify-content: space-evenly;
         a {
             text-decoration: none;
             min-width: 15rem;
             text-align: center;
+            white-space: nowrap;
         }
     }
 
@@ -48,5 +61,51 @@
 
     .hamburger {
         display: none;
+
+        a {
+            color:#ffffff;
+            
+        }
+        div {
+            width: 100%;
+            padding: 2% 0%;
+            border: 1px solid black;
+        }
     }
+
+    .icon {
+        display: block;
+        p {
+            color: #ffffff;
+        }
+    }
+
+    @include media(stablet){
+        .nav-list{
+            flex-flow: row;
+        }
+        .nav-buttons{
+            flex-flow: row;
+        }
+    }
+    @include media(btablet) {
+        .icon {
+            display: none;    
+        }
+
+        .nav-items {
+            display: block;
+        }
+
+        .hamburger{
+            display: none;
+        }
+
+        .logoMenu{
+            justify-content: left;
+        }
+    }
+
+
+
 }

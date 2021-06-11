@@ -1,0 +1,71 @@
+.structural {
+    position: absolute;
+    left: -9999px;
+}
+
+body{
+    background-color: white;
+}
+
+#top-row {
+    
+    display: flex;
+    flex-flow: column;
+    align-content: center;
+    width: 100%;
+    text-align: center;
+
+   
+
+    .content{
+        align-self: center;
+        padding-top: 5% ;
+    }
+
+    h3{
+        padding-top: 2%;
+        padding-bottom: 2%;
+    }
+    
+    @include media(stablet) {
+        flex-flow: row nowrap;
+        text-align: left;        
+    }
+}
+
+#about{
+    #top-row{
+        @include media(stablet) {
+            flex-flow: column nowrap;
+            text-align: center;      
+        }
+        @include media(mtablet) {
+            flex-flow: row nowrap;
+            text-align: left;
+        }
+    }  
+}
+
+#questions {
+    margin-top: 1%;
+    margin-bottom: 1%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h3{
+        text-align: center;
+        padding-top: 2%;
+        padding-bottom: 2%;
+        width: 20%;
+    }
+
+    button {
+        width: 20%;
+    }
+
+}
+
+
+
