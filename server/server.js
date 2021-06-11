@@ -256,6 +256,8 @@ app.post(
     }
 );
 
+
+
 app.put(
     '/api/users/:id',
     (req, res) => {
@@ -310,6 +312,8 @@ app.patch(
 
         const update = body.update;
 
+        
+
         users.patchCredit(user, update).then(() => {
             res.send({
                 message: 'Credit update was successfully',
@@ -323,6 +327,8 @@ app.patch(
         });
     }
 );
+
+
 
 app.delete(
     '/api/users/:id',
