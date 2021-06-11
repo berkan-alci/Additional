@@ -80,21 +80,54 @@ app.post('/login', checkNotAuthenticated, (request, response) => {
 });
 
 app.post('/register', checkNotAuthenticated, async (req, res) => {
-    let username = req.body.username;
-    let password = req.body.password;
-    let confirmPassword = req.body.confirmPassword;
-    let email = req.body.email;
-    let city = req.body.city;
-    let zip = req.body.zip;
-    let street = req.body.street;
-    let cardNumber = req.body.cardNumber.split(" ").join("");
-    let birthdate = req.body.birthdate;
-
+    const { username, password, email, city, zip, street, cardNumber, birthdate} = req.body;
+    let card = cardNumber.split(" ").join("");
+    
     let user = null;
 
-    try {
-        const hashedPassword = await bcrypt.hash(password, 10);
+    //validation
 
+    if(!username || typeof username !== 'string') {
+        return res.json({status:'error', error:'Invalid username!'});
+    }
+
+    if(!password || typeof password !== 'string') {
+        return res.json({status:'error', error:'Invalid password!'});
+    }
+
+    if(password.length < 7 ) {
+        return res.json({status:'error', error:'Password bust be larger than 7 characters!'});
+    }
+
+    if(!email || typeof email !== 'string') {
+        return res.json({status:'error', error:'Invalid email!'});
+    }
+
+    if(!city || typeof city !== 'string') {
+        return res.json({status:'error', error:'Invalid city!'});
+    }
+
+    if(!zip || typeof zip !== 'string') {
+        return res.json({status:'error', error:'Invalid zip!'});
+    }
+
+    if(zip.length > 5) {
+        return res.json({status:'error', error:'Zip length is max 4 numbers'});
+    }
+
+    if(!street || typeof street !== 'string') {
+        return res.json({status:'error', error:'Invalid address!'});
+    }
+
+    if(!cardNumber || typeof cardNumber !== 'string') {
+        return res.json({status:'error', error:'Invalid IBAN!'});
+    }
+    
+    const hashedPassword = await bcrypt.hash(password, 10);
+    
+
+    try {
+        
         user = new User(
             false,
             username,
@@ -103,7 +136,7 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
             city,
             zip,
             street,
-            cardNumber,
+            card,
             birthdate,
             0,
         );
@@ -118,51 +151,6 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
     }).catch((error) => {
         console.log('User was not added. ' + error);
     });
-
-    // if(password === confirmPassword) {
-
-    //     users.getUserByUsername(username).then( (results1) => {
-
-    //         if (results1) {
-    //             res.render('register.ejs', {error: 'Username already exist.', user: user});
-    //             return;
-    //         }
-
-    //         users.getUserByEmail(email).then( (results2) => {
-
-    //             if (results2) {
-    //                 res.render('register.ejs', {error: 'Email already exist.', user: user});
-    //                 return;
-    //             }
-
-    //             users.getUserByCard(cardNumber).then( (results3) => {
-
-    //                 if (results3) {
-    //                     res.render('register.ejs', {error: 'Card number already exist.', user: user});
-    //                 } else {
-    //                     users.storeUser(user).then(() => {
-    //                         res.redirect('/');
-    //                         console.log('User was added successfully');
-    //                     }).catch((error) => {
-    //                         console.log('User was not added. ' + error);
-    //                     });
-    //                 }
-
-    //             }).catch((error) => {
-    //                 console.log(error);
-    //             });
-
-    //         }).catch((error) => {
-    //             console.log(error);
-    //         });
-
-    //     }).catch((error) => {
-    //         console.log(error);
-    //     });
-
-    // } else {
-    //     res.render('register.ejs', {error: 'Passwords do not match.', user: user});
-    // }
 });
 
 app.delete('/logout', (req, res) => {

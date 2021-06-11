@@ -404,7 +404,7 @@ th {
 }
 
 #modal-register .modal-register-top .modal-register-top-text {
-  color: black;
+  color: #3F3F3F;
 }
 
 #modal-register .modal-register-top h1 {
@@ -414,7 +414,7 @@ th {
 }
 
 #modal-register .modal-register-top span {
-  color: yellow;
+  color: #FFF500;
   -webkit-text-stroke: 1px black;
 }
 
@@ -467,6 +467,7 @@ th {
   display: inline;
   color: black;
   text-decoration: underline;
+  color: #FFF500;
 }
 
 #modal-register .form-wrapper #zip, #modal-register .form-wrapper #city {
