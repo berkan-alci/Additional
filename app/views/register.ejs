@@ -58,17 +58,18 @@
                             <input type="text" placeholder="Bv: Gentsestraat 123" id="address" name="street" autocomplete="address-line1" value="<%= locals.user ? user.street : '' %>" required>
                             <div class="description" id="address-valid"></div>
                         </div>
-                    
-                        <div class="form-group">
-                            <label for="city">City</label>
-                            <input type="text" placeholder="City" id="city" name="city" value="<%= locals.user ? user.city : '' %>" required>
-                            <div class="description" id="city-valid"></div>
-                        </div>
-                    
-                        <div class="form-group">
-                            <label for="zip">Zip</label>
-                            <input type="text" placeholder="Zip" id="zip" name="zip" autocomplete="postal-code" value="<%= locals.user ? user.zip : '' %>" required>
-                            <div class="description" id="zip-valid"></div>
+                        <div class="city-zip-wrapper">
+                            <div class="form-group">
+                                <label for="city">City</label>
+                                <input type="text" placeholder="City" id="city" name="city" value="<%= locals.user ? user.city : '' %>" required>
+                                <div class="description" id="city-valid"></div>
+                            </div>
+                        
+                            <div class="form-group">
+                                <label for="zip">Zip</label>
+                                <input type="text" placeholder="Zip" id="zip" name="zip" autocomplete="postal-code" value="<%= locals.user ? user.zip : '' %>" required>
+                                <div class="description" id="zip-valid"></div>
+                            </div>
                         </div>
                     
                         <div class="form-group">
@@ -83,7 +84,7 @@
                             <div class="description" id="birthdate-valid"></div>
                         </div>
                     
-                        <div class="form-group">
+                        <div class="form-group" id="L">
                             <input type="checkbox" name="tos" id="tos" class="checkbox" checked required><label for="tos" class="tos">I have read <span>the user agreement</span></label>
                             <div class="description" id="tos-valid"></div>
                         </div>
