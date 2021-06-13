@@ -1,16 +1,36 @@
 {
-  "name": "server",
+  "name": "better",
+  "productName": "Better",
   "version": "1.0.0",
-  "description": "",
-  "main": "main.js",
+  "description": "betting app",
+  "main": "./server/main.js",
   "scripts": {
     "start": "electron ./server/main.js",
-    "devStart": "nodemon server.js"
+    "devStart": "nodemon server.js",
+    "dist": "electron-builder build",
+    "package": "electron-forge package",
+    "makeWin": "electron-forge make",
+    "makeOSX": "electron-forge make --platform=darwin",
+    "makeOSX2": "npx @electron-forge/cli make --platform=darwin"
+  },
+  "build": {
+    "appId": "com.BetterAplhatest.app",
+    "productName": "Better test 1",
+    "target": "nsis",
+    "directories": {
+      "output": "build"
+    }
   },
   "keywords": [],
-  "author": "",
+  "author": "henk",
   "license": "ISC",
   "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.57",
+    "@electron-forge/maker-deb": "^6.0.0-beta.57",
+    "@electron-forge/maker-dmg": "^6.0.0-beta.57",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.57",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.57",
+    "@electron-forge/maker-zip": "^6.0.0-beta.57",
     "dotenv": "^9.0.2",
     "ejs-electron": "^2.1.1",
     "electron": "^12.0.7",
@@ -20,10 +40,46 @@
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
     "ejs": "^3.1.6",
+    "electron-squirrel-startup": "^1.0.0",
     "express": "^4.17.1",
     "express-flash": "0.0.2",
     "express-session": "^1.17.1",
     "method-override": "^3.0.0",
     "mysql2": "^2.2.5"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "Better",
+            "icon": "./app/public/img/iconLogo.ico"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-dmg",
+          "config": {
+            "name": "Better",
+            "icon": "./app/public/img/iconLogo.ico"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
   }
 }
