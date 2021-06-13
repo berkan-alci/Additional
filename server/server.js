@@ -39,9 +39,9 @@ app.get('/', (request, response) => {
     response.render('index.ejs', {user: request.session.user});
 });
 
-app.get('/casino', checkAuthenticated, (request, response) => {
+app.get('/casino', checkAuthenticated, async (request, response) => {
 
-    users.getUserByUsername(request.session.user.username).then((results) => {
+    await users.getUserByUsername(request.session.user.username).then((results) => {
         request.session.user = results[0];
         delete request.session.user.password;
         console.log(request.session.user);
@@ -49,6 +49,20 @@ app.get('/casino', checkAuthenticated, (request, response) => {
 
     response.render('casino.ejs', {user: request.session.user});
 });
+
+function getUser(request) {
+    if (request.session.loggedin) {
+        users.getUserByUsername(request.session.user.username).then((results) => {
+            request.session.user = results[0];
+            delete request.session.user.password;
+            console.log(request.session.user);
+            return request.session.user;
+        });
+    } else {
+        console.log('null');
+        return null;
+    }
+}
 
 app.get('/contact', checkAuthenticated, (request, response) => {
     response.render('contact.ejs');
@@ -58,9 +72,14 @@ app.get('/about', checkAuthenticated, (request, response) => {
     response.render('about.ejs');
 });
 
-app.get('/profile', checkAuthenticated, (request, response) => {
+app.get('/profile', checkAuthenticated, async (request, response) => {
+    await users.getUserByUsername(request.session.user.username).then((results) => {
+        request.session.user = results[0];
+        delete request.session.user.password;
+        console.log(request.session.user);
+    });
+
     response.render('profile.ejs', {user: request.session.user});
-    console.log(request.session.user);
 });
 
 app.get('/login', checkNotAuthenticated, (req, res) => {
@@ -116,20 +135,6 @@ app.post('/login', checkNotAuthenticated, (req, res) => {
     }
    
 });
-
-function getUser(request) {
-    if (request.session.loggedin) {
-        users.getUserByUsername(request.session.user.username).then((results) => {
-            request.session.user = results[0];
-            delete request.session.user.password;
-            console.log(request.session.user);
-            return request.session.user;
-        });
-    } else {
-        console.log('null');
-        return null;
-    }
-}
 
 app.post('/register', checkNotAuthenticated, async (req, res) => {
     const { username, password, email, city, zip, street, cardNumber, birthdate} = req.body;

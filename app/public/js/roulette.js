@@ -34,7 +34,7 @@
         let money = Number(document.querySelector("input[name='chips']:checked").value);
         if (e.which == 1) {
             if (money < max || money === max) {
-                console.log(money + " euro on " + val);
+                //console.log(money + " euro on " + val);
                 bets[val] = (bets[val] !== undefined) ? money + Number(bets[val]) : money;
 
                 if (e.target.children[0]) {
@@ -54,9 +54,9 @@
             }
 
         } else {
-            console.log(bets);
+            //console.log(bets);
             if (bets[val] !== undefined) {
-                console.log(money + " euro of off " + val);
+                //console.log(money + " euro of off " + val);
                 max += ((Number(bets[val]) - Math.abs(Number(bets[val]) - money)) > 0) ? Number(bets[val]) - Math.abs(Number(bets[val]) - money) : Number(bets[val]);
                 bets[val] = Number(bets[val]) - money;
 
@@ -85,31 +85,10 @@
         updateBets();
     }
 
-    //update credit in database
-    function updateCredit(credit) {
-        user.credit = credit;
-        console.log('here:');
-        console.log(user);
-        fetch('http://localhost:3000/api/users/' + user.id, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(user)
-        })
-            .then(() => {
-                console.log('credit updated');
-                console.log(JSON.stringify(user));
-
-                window.location.href = "/casino";
-            })
-            .catch(() => console.log('Error get'))
-    }
-
     //get random winning number
     function play() {
         let ran = Math.floor(Math.random()) + 1;
-        console.log(ran);
+        //console.log(ran);
         for (let i = 0; i < ran; i++) {
             setTimeout(() => {
                 roll();
@@ -117,7 +96,7 @@
         }
         let winner = Math.floor(Math.random() * 37);
         //winner = 35;
-        console.log(winner);
+        //console.log(winner);
         setTimeout(() => {
             roll(winner);
         }, ran * 37 * 200);
@@ -162,7 +141,7 @@
 
     //after showing winning nummer look what has been won
     function calculateWinner(winner) {
-        console.log(bets)
+        //console.log(bets)
         let win = null;
         //zero
         if (winner == 0) {
@@ -251,12 +230,33 @@
         updateCredit(max);
     }
 
+    //update credit in database
+    function updateCredit(credit) {
+        user.credit = credit;
+        //console.log('here:');
+        //console.log(user);
+        fetch('http://localhost:3000/api/users/' + user.id, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(() => {
+                //console.log('credit updated');
+                //console.log(JSON.stringify(user));
+
+                window.location.href = "/casino";
+            })
+            .catch(() => console.log('Error get'))
+    }
+
     //update bets table
     function updateBets() {
         document.getElementById('max').innerHTML = 'Money: $' + max;
-        console.log(max);
+        //console.log(max);
         let table = document.getElementById('bets');
-        console.log(Object.keys(bets).length);
+        //console.log(Object.keys(bets).length);
         if (Object.keys(bets).length === 0) {
             table.innerHTML = '';
         } else {
@@ -292,14 +292,14 @@
     //Delete bet with table button
     function delBet(e) {
         let val = e.target.parentNode.parentNode.children[0].innerHTML;
-        console.log(val);
+        //console.log(val);
         if (bets[val] !== undefined) {
             document.querySelector('[name = "' + val + '"]').children[0].remove();
             max += bets[val];
             delete bets[val];
             updateBets();
         } else {
-            console.log('idk');
+            //console.log('idk');
         }
     }
 
