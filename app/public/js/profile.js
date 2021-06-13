@@ -9,7 +9,7 @@ window.addEventListener('load', (e) => {
 
     const errWithdraw = document.querySelector('#withdraw-valid');
     const errAdd = document.querySelector('#add-valid');
-
+    user = JSON.parse(user);
 
     const success = document.querySelector('#success-message');
 
@@ -80,52 +80,42 @@ window.addEventListener('load', (e) => {
     const resetWithdraw = () => {
         withdraw.value = "";
     }
-
+    
     const sendRequestAdd = async () => {
 
      
-        const result = await fetch('/add', {
-            method:'POST',
+        fetch('http://localhost:3000/api/users/' + user.id, {
+            method: 'PUT',
             headers: {
-                'Content-Type':'application/json'
+                'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                add: add.value,
-                
-            })
-        }).then((res) => res.json())
+            body: JSON.stringify(user)
+        })
+            .then(() => {
+                //console.log('credit updated');
+                //console.log(JSON.stringify(user));
 
-        if(result.status === 'ok'){
-            alert('Addition Successful!');
-            success.style.display ="block";
-            success.innerText = 'Addition successful!';
-            resetAdd();
-        } else {
-            alert(result.error)
-        }
+                window.location.href = "/profile";
+            })
+            .catch(() => console.log('Error get'))
     }
 
     const sendRequestWithdraw = async () =>{
         
 
-        const result = await fetch('/withdraw', {
-            method:'POST',
+        fetch('http://localhost:3000/api/users/' + user.id, {
+            method: 'PUT',
             headers: {
-                'Content-Type':'application/json'
+                'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                withdraw: withdraw.value,
-                
-            })
-        }).then((res) => res.json())
+            body: JSON.stringify(user)
+        })
+            .then(() => {
+                //console.log('credit updated');
+                //console.log(JSON.stringify(user));
 
-        if(result.status === 'ok'){
-            alert('Withdrawal Successful!');
-            success.style.display ="block";
-            success.innerText = 'Withdrawal successful!';
-            resetWithdraw();
-        } else {
-            alert(result.error)
-        }
+                window.location.href = "/profile";
+            })
+            .catch(() => console.log('Error get'))
     }
 });

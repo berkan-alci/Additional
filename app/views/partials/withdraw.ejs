@@ -1,3 +1,9 @@
+<% if (locals.user) { %>
+    <script>
+        var user = '<%- JSON.stringify(user) %>';
+    </script>
+<% } %>
+
 <form id="withdraw">
     <p id="success-message"></p>
 
