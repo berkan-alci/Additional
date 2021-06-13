@@ -50,20 +50,6 @@ app.get('/casino', checkAuthenticated, async (request, response) => {
     response.render('casino.ejs', {user: request.session.user});
 });
 
-function getUser(request) {
-    if (request.session.loggedin) {
-        users.getUserByUsername(request.session.user.username).then((results) => {
-            request.session.user = results[0];
-            delete request.session.user.password;
-            console.log(request.session.user);
-            return request.session.user;
-        });
-    } else {
-        console.log('null');
-        return null;
-    }
-}
-
 app.get('/contact', checkAuthenticated, (request, response) => {
     response.render('contact.ejs');
 });
@@ -412,6 +398,7 @@ app.post(
             body.amount,
             body.date,
             body.userId,
+            body.profit,
         );
 
         bets.storeBet(bet).then(() => {

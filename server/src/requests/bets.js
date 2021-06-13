@@ -11,13 +11,14 @@ module.exports.getBets = getBets;
 
 async function storeBet(bet) {
     const conn = await connection.getDatabaseConnection();
-    const query = 'INSERT INTO bets (bet, amount, date, users_id) ' +
-        'VALUES (?,?,?,?)';
+    const query = 'INSERT INTO bets (bet, amount, date, users_id, profit) ' +
+        'VALUES (?,?,?,?,?)';
     const [results] = await conn.query(query, [
         bet.bet,
         bet.amount,
         bet.date,
         bet.userId,
+        bet.profit,
     ]);
     await conn.end();
     return results;
