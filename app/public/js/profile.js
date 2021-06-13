@@ -1,7 +1,7 @@
 const log = console.log;
 
 window.addEventListener('load', (e) => {
-    const withdrawForm = document.getElementById('login-info');
+    const withdrawForm = document.getElementById('withdraw');
     const addForm = document.getElementById('add');
 
     const withdraw = document.querySelector('input[name="withdraw"]');
@@ -9,6 +9,7 @@ window.addEventListener('load', (e) => {
 
     const errWithdraw = document.querySelector('#withdraw-valid');
     const errAdd = document.querySelector('#add-valid');
+
     user = JSON.parse(user);
 
     const success = document.querySelector('#success-message');
@@ -23,18 +24,22 @@ window.addEventListener('load', (e) => {
             resetErrAdd();
             const isValid = validateAdd();
             if (isValid) {
-                sendRequestAdd();
+                console.log('valid');
+                console.log(add.value);
+                sendRequestAdd(parseFloat(add.value));
             }
     
         });
 
         const validateAdd = () => {
             let isValid = true;
-            if(add.value === "" || isNaN(add.value)) {
+            if(add.value === "" || isNaN(add.value) || parseFloat(add.value) <= 0) {
                 setErr(errAdd, 'Enter a valid amount to add to your balance!');
+                isValid = false;
+                console.log('not valid');
             }
             return isValid;
-        }
+        };
 
         const resetErrAdd = () => {
             errAdd.style.display = "none";
@@ -44,25 +49,22 @@ window.addEventListener('load', (e) => {
             add.value = "";
         };
 
-        const sendRequestAdd = async () => {
-
+        const sendRequestAdd = (add) => {
+            user.credit = parseFloat(user.credit) + add;
+            console.log('user:');
+            console.log(user);
             fetch('http://localhost:3000/api/users/' + user.id, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({
-                    add: add.value
-                })
+                body: JSON.stringify(user)
             })
                 .then(() => {
-                    //console.log('credit updated');
-                    //console.log(JSON.stringify(user));
-    
-                    window.location.href = "/profile";
                     resetAdd();
+                    window.location.href = "/profile";
                 })
-                .catch(() => console.log('Error get'))
+                .catch(() => console.log('Error PUT'))
         }
 
     } else {
@@ -75,14 +77,18 @@ window.addEventListener('load', (e) => {
             resetErrWithdraw();
             const isValid = validateWithdraw();
             if (isValid) {
-                sendRequestWithdraw();
+                console.log('valid');
+                console.log(withdraw.value);
+                sendRequestWithdraw(parseFloat(withdraw.value));
             }
         });
 
         const validateWithdraw = () => {
             let isValid = true;
-             if(withdraw.value === "" || isNaN(withdraw.value)) {
+             if(withdraw.value === "" || isNaN(withdraw.value) || parseFloat(withdraw.value) <= 0
+                 || parseFloat(withdraw.value) > parseFloat(user.credit)) {
                  setErr(errWithdraw, 'Enter a valid amount to add to your balance!');
+                 isValid = false;
              }
              return isValid;
          };
@@ -93,28 +99,24 @@ window.addEventListener('load', (e) => {
 
         const resetWithdraw = () => {
             withdraw.value = "";
-        }
+        };
 
-        const sendRequestWithdraw = async () =>{
-        
-
+        const sendRequestWithdraw = (withdraw) =>{
+            user.credit = parseFloat(user.credit) - withdraw;
+            console.log('user:');
+            console.log(user);
             fetch('http://localhost:3000/api/users/' + user.id, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({
-                    withdraw: withdraw.value
-                })
+                body: JSON.stringify(user)
             })
                 .then(() => {
-                    //console.log('credit updated');
-                    //console.log(JSON.stringify(user));
-    
-                    window.location.href = "/profile";
                     resetWithdraw();
+                    window.location.href = "/profile";
                 })
-                .catch(() => console.log('Error get'))
+                .catch(() => console.log('Error PUT'))
         }
     }
 

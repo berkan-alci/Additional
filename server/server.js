@@ -44,7 +44,6 @@ app.get('/casino', checkAuthenticated, async (request, response) => {
     await users.getUserByUsername(request.session.user.username).then((results) => {
         request.session.user = results[0];
         delete request.session.user.password;
-        console.log(request.session.user);
     });
 
     response.render('casino.ejs', {user: request.session.user});
@@ -62,7 +61,6 @@ app.get('/profile', checkAuthenticated, async (request, response) => {
     await users.getUserByUsername(request.session.user.username).then((results) => {
         request.session.user = results[0];
         delete request.session.user.password;
-        console.log(request.session.user);
     });
 
     response.render('profile.ejs', {user: request.session.user});
@@ -297,11 +295,7 @@ app.put(
             body.credit,
         );
 
-        console.log('user:');
-        console.log(user);
-
-        users.putUser(user).then((e) => {
-            console.log(e);
+        users.putUser(user).then(() => {
             res.send({
                 message: 'User update was successfully !!',
                 status: 201
