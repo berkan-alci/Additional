@@ -228,10 +228,40 @@
         }
 
         updateCredit(max);
+
+        let bet = {
+            bet: 'roulette',
+            amount: ,
+            date: ,
+            userId: user.id,
+            profit: ,
+        };
+        addBet(bet);
     }
 
     //update credit in database
     function updateCredit(credit) {
+        user.credit = credit;
+        //console.log('here:');
+        //console.log(user);
+        fetch('http://localhost:3000/api/users/' + user.id, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(() => {
+                //console.log('credit updated');
+                //console.log(JSON.stringify(user));
+
+                window.location.href = "/casino";
+            })
+            .catch(() => console.log('Error get'))
+    }
+
+    //add bet to database
+    function addBet(bet) {
         user.credit = credit;
         //console.log('here:');
         //console.log(user);
