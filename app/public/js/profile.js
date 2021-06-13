@@ -89,13 +89,16 @@ window.addEventListener('load', (e) => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(user)
+            body: JSON.stringify({
+                add: add.value
+            })
         })
             .then(() => {
                 //console.log('credit updated');
                 //console.log(JSON.stringify(user));
 
                 window.location.href = "/profile";
+                resetErrAdd();
             })
             .catch(() => console.log('Error get'))
     }
@@ -108,13 +111,16 @@ window.addEventListener('load', (e) => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(user)
+            body: JSON.stringify({
+                withdraw: withdraw.value
+            })
         })
             .then(() => {
                 //console.log('credit updated');
                 //console.log(JSON.stringify(user));
 
                 window.location.href = "/profile";
+                resetErrWithdraw();
             })
             .catch(() => console.log('Error get'))
     }
