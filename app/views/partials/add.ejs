@@ -1,0 +1,11 @@
+<form class="add">
+    <p id="success-message"></p>
+
+    <div class="form-group">
+        <label for="add" class="add">Add credits</label>
+        <input type="text" placeholder="50" id="add" name="add" value="<%= locals.user ? user.userName : '' %>" required="required">
+        <div class="add" id="add-valid"></div>
+    </div>
+
+    <button type="submit">Add money</button>
+</form>
