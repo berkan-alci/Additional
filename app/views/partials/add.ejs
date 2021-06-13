@@ -1,4 +1,10 @@
-<form class="add">
+<% if (locals.user) { %>
+    <script>
+        var user = '<%- JSON.stringify(user) %>';
+    </script>
+<% } %>
+
+<form id="add">
     <p id="success-message"></p>
 
     <div class="form-group">
