@@ -13,36 +13,39 @@ window.addEventListener('load', (e) => {
 
     const success = document.querySelector('#success-message');
 
-    withdrawForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
+    if(!withdrawForm) {
+        addForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+    
+            success.style.display = "none";
+            success.innerText ="";
+            move.style.display="none";
+            move.innerText="";
+            
+            resetErrAdd();
+            const isValid = validateAdd();
+            if (isValid) {
+                sendRequestAdd();
+            }
+    
+        });
+    } else {
+        withdrawForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+    
+            success.style.display = "none";
+            success.innerText ="";
+            move.style.display="none";
+            move.innerText="";
+            
+            resetErrWithdraw();
+            const isValid = validateWithdraw();
+            if (isValid) {
+                sendRequestWithdraw();
+            }
+        });
+    }
 
-        success.style.display = "none";
-        success.innerText ="";
-        move.style.display="none";
-        move.innerText="";
-        
-        resetErrWithdraw();
-        const isValid = validateWithdraw();
-        if (isValid) {
-            sendRequestWithdraw();
-        }
-    });
-
-    addForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-
-        success.style.display = "none";
-        success.innerText ="";
-        move.style.display="none";
-        move.innerText="";
-        
-        resetErrAdd();
-        const isValid = validateAdd();
-        if (isValid) {
-            sendRequestAdd();
-        }
-
-    });
 
     const validateWithdraw = () => {
         let isValid = true;
