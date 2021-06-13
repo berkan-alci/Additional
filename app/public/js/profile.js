@@ -37,7 +37,7 @@ window.addEventListener('load', (e) => {
         }
 
         const resetErrAdd = () => {
-            errWithdraw.style.display = "none";
+            errAdd.style.display = "none";
         };
 
         const resetAdd = () => {
@@ -112,7 +112,7 @@ window.addEventListener('load', (e) => {
                     //console.log(JSON.stringify(user));
     
                     window.location.href = "/profile";
-                    resetErrWithdraw();
+                    resetWithdraw();
                 })
                 .catch(() => console.log('Error get'))
         }
