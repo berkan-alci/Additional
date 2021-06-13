@@ -14,13 +14,11 @@ window.addEventListener('load', (e) => {
     const success = document.querySelector('#success-message');
 
     if(!withdrawForm) {
-        addForm.addEventListener('submit', async (e) => {
+        addForm.addEventListener('submit',  (e) => {
             e.preventDefault();
     
             success.style.display = "none";
             success.innerText ="";
-            move.style.display="none";
-            move.innerText="";
             
             resetErrAdd();
             const isValid = validateAdd();
@@ -30,13 +28,11 @@ window.addEventListener('load', (e) => {
     
         });
     } else {
-        withdrawForm.addEventListener('submit', async (e) => {
+        withdrawForm.addEventListener('submit',  (e) => {
             e.preventDefault();
     
             success.style.display = "none";
             success.innerText ="";
-            move.style.display="none";
-            move.innerText="";
             
             resetErrWithdraw();
             const isValid = validateWithdraw();
