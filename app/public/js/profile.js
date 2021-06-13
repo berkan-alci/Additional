@@ -1,8 +1,8 @@
 const log = console.log;
 
 window.addEventListener('load', (e) => {
-    const withdraw = document.getElementById('login-info');
-    const add = document.getElementById('add');
+    const withdrawForm = document.getElementById('login-info');
+    const addForm = document.getElementById('add');
 
     const withdraw = document.querySelector('input[name="withdraw"]');
     const add = document.querySelector('input[name="add"]');
@@ -13,7 +13,7 @@ window.addEventListener('load', (e) => {
 
     const success = document.querySelector('#success-message');
 
-    withdraw.addEventListener('submit', async (e) => {
+    withdrawForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         success.style.display = "none";
@@ -28,7 +28,7 @@ window.addEventListener('load', (e) => {
         }
     });
 
-    add.addEventListener('submit', async (e) => {
+    addForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         success.style.display = "none";
