@@ -227,16 +227,17 @@
             max += win;
         }
 
-        updateCredit(max);
-
         let bet = {
-            bet: 'roulette',
-            amount: ,
-            date: ,
-            userId: user.id,
-            profit: ,
+            bet: 'roulette', //ok
+            amount: 10,
+            date: new Date(Date.now()).toJSON().slice(0, 10), //ok
+            userId: user.id, //ok
+            profit: win ? win : max - user.credit, //ok
         };
         addBet(bet);
+
+        updateCredit(max);
+
     }
 
     //update credit in database
@@ -257,28 +258,23 @@
 
                 window.location.href = "/casino";
             })
-            .catch(() => console.log('Error get'))
+            .catch(() => console.log('Error PUT'))
     }
 
     //add bet to database
     function addBet(bet) {
-        user.credit = credit;
-        //console.log('here:');
-        //console.log(user);
-        fetch('http://localhost:3000/api/users/' + user.id, {
-            method: 'PUT',
+        fetch('http://localhost:3000/api/bets/', {
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(user)
+            body: JSON.stringify(bet)
         })
             .then(() => {
                 //console.log('credit updated');
                 //console.log(JSON.stringify(user));
-
-                window.location.href = "/casino";
             })
-            .catch(() => console.log('Error get'))
+            .catch(() => console.log('Error POST'))
     }
 
     //update bets table
