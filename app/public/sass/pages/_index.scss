@@ -64,6 +64,8 @@
                 color: clr(sec);
                     font-size: 2.5rem;
                     font-weight: 400;
+                -webkit-text-stroke-width: 1px;
+                -webkit-text-stroke-color: #000000;
 
                     @include media(mtablet){
                         font-size: 3rem;
@@ -118,6 +120,8 @@
                 color: clr(sec);
                     font-size: 2.5rem;
                     font-weight: 400;
+                -webkit-text-stroke-width: 1px;
+                -webkit-text-stroke-color: #000000;
 
                     @include media(mtablet){
                         font-size: 3rem;
