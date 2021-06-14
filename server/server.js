@@ -49,12 +49,12 @@ app.get('/casino', checkAuthenticated, async (request, response) => {
     response.render('casino.ejs', {user: request.session.user});
 });
 
-app.get('/contact', checkAuthenticated, (request, response) => {
-    response.render('contact.ejs');
+app.get('/contact', (request, response) => {
+    response.render('contact.ejs', {user: request.session.user});
 });
 
-app.get('/about', checkAuthenticated, (request, response) => {
-    response.render('about.ejs');
+app.get('/about', (request, response) => {
+    response.render('about.ejs', {user: request.session.user});
 });
 
 app.get('/profile', checkAuthenticated, async (request, response) => {
@@ -88,6 +88,31 @@ app.get('/edit', checkAuthenticated, (request, response) =>{
 
 app.get('/info', checkAuthenticated, (request, response) => {
     response.render('./partials/info.ejs');
+});
+
+app.get('/add-credit', checkAuthenticated, (req, res) => {
+    res.render('addpage.ejs', {user: req.session.user});
+});
+
+app.get('/withdraw-credit', checkAuthenticated, (req, res) => {
+    res.render('withdrawpage.ejs', {user: req.session.user});
+});
+
+app.get('/past-bets', checkAuthenticated, async (req, res) => {
+    let betsList = null;
+
+    await bets.getBets(req.session.user.id).then((results) => {
+        console.log('bets: ');
+        console.log(results);
+        betsList = results;
+    }).catch((error) => {
+        res.send({
+            error: error,
+            status: 500
+        });
+    });
+
+    res.render('pastbets.ejs', {user: req.session.user, bets: betsList});
 });
 
 app.post('/login', checkNotAuthenticated, (req, res) => {

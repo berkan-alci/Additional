@@ -1,0 +1,22 @@
+<% if (locals.user) { %>
+    <script>
+        var user = '<%- JSON.stringify(user) %>';
+    </script>
+<% } %>
+
+<section>
+    <ul class="bets-list">
+        <% if (locals.bets) { %>
+            <% for (var i=0; i < bets.length; i++) { %>
+                <li>
+                    <p><%= bets[i].bet %>:</p>
+                    <p>profit: <%= bets[i].profit %> | amount: <%= bets[i].amount %> |
+                        date: <%= (new Date(bets[i].date)).toLocaleDateString("be-BE") %><br><br></p>
+                </li>
+            <% } %>
+        <% } else { %>
+            <p>No past bets.</p>
+        <% } %>
+
+    </ul>
+</section>

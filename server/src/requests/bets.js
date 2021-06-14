@@ -1,10 +1,11 @@
 const connection = require('../../../database/connection');
 
-async function getBets() {
+async function getBets(id = 0) {
     const conn = await connection.getDatabaseConnection();
-    const [rows] = await conn.query('SELECT * FROM bets');
+    const query = 'SELECT * FROM bets WHERE users_id = ?';
+    const [results] = await conn.query(query, [id]);
     await conn.end();
-    return rows;
+    return results;
 }
 
 module.exports.getBets = getBets;
