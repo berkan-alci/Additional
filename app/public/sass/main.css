@@ -798,6 +798,8 @@ footer .social-icons img {
   color: #FFF500;
   font-size: 2.5rem;
   font-weight: 400;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #000000;
 }
 
 @media screen and (min-width: 899px) {
@@ -870,6 +872,8 @@ footer .social-icons img {
   color: #FFF500;
   font-size: 2.5rem;
   font-weight: 400;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #000000;
 }
 
 @media screen and (min-width: 899px) {
@@ -1466,7 +1470,6 @@ a .grey-button {
 }
 
 #top-row a {
-  color: #FFF500;
   text-decoration: underline;
 }
 
