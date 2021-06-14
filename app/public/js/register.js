@@ -152,16 +152,11 @@ window.addEventListener('load', (e) => {
                 'Content-Type':'application/json'
             },
             body: JSON.stringify(data)
-        }).then((res) => res.json())
+        }).then(() => {
+            window.location.href = '/login';
+        })
 
-        if(result.status === 'ok'){
-            alert('Registration Successful!');
-            success.style.display ="block";
-            success.innerText = 'Registration successful!';
-            reset();
-        } else {
-            alert(result.error)
-        }
+      
     }
 });
 

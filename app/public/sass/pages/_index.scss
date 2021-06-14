@@ -90,3 +90,45 @@
 
     }
 }
+
+
+#coming {
+    margin-top: 5rem;
+    min-height: 50vh;
+    .coming {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0 50px;
+        margin: 0 auto;
+        
+
+        h2 {
+            text-transform: uppercase;
+            color: black;
+            width: auto;
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 2rem;
+            @include media(mtablet){
+                font-size: 3rem;
+            }
+            span {
+                color: clr(sec);
+                    font-size: 2.5rem;
+                    font-weight: 400;
+
+                    @include media(mtablet){
+                        font-size: 3rem;
+                    }
+            }
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+    }
+}

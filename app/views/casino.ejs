@@ -14,11 +14,21 @@
     </script>
 <% } %>
 
+
+
 <main>
+    <section id="banneri">
+        <%- include('./partials/banner'); %> 
+    </section>
+
     <div class="roulette container">
-        <h1>Roulette</h1>
+        <h2>Roulette</h2>
         <%- include('./partials/roulette'); %>
     </div>
+
+    <section id="coming">
+        <%- include('./partials/soon'); %> 
+    </section>
 </main>
 <!-- Footer -->
 <%- include('./partials/footer'); %>

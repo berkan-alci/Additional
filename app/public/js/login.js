@@ -73,17 +73,9 @@ window.addEventListener('load', (e) => {
                 username: username.value,
                 password: password.value
             })
-        }).then((res) => res.json())
-
-        if(result.status === 'ok'){
-            alert('Login Successful!');
-            success.style.display ="block";
-            success.innerText = 'Login successful!';
-            move.style.display="block";
-            move.innerText="Click here";
-            reset();
-        } else {
-            alert(result.error)
-        }
+        }).then(() => {
+            window.location.href = '/';
+        })
+       
     }
 });

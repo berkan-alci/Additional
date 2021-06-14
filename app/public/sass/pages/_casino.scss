@@ -1,0 +1,25 @@
+.roulette {
+    margin-top: 5rem;
+    margin-bottom: 10rem;
+    border-bottom: 1px solid black;
+    h2 {
+        text-transform: uppercase;
+        color: black;
+        width: auto;
+        font-weight: 400;
+        text-align: center;
+        margin-bottom: 2rem;
+        @include media(mtablet){
+            font-size: 3rem;
+        }
+        span {
+            color: clr(sec);
+                font-size: 2.5rem;
+                font-weight: 400;
+
+                @include media(mtablet){
+                    font-size: 3rem;
+                }
+        }
+    }
+}
