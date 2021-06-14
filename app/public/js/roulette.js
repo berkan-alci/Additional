@@ -227,9 +227,14 @@
             max += win;
         }
 
+        let total = 0;
+        for (let bet in bets) {
+            total += Number(bets[bet]);
+        }
+
         let bet = {
             bet: 'roulette', //ok
-            amount: 10,
+            amount: total,
             date: new Date(Date.now()).toJSON().slice(0, 10), //ok
             userId: user.id, //ok
             profit: win ? win : max - user.credit, //ok
